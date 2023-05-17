@@ -1,4 +1,7 @@
 
-public class Area {
-
+interface Area {
+	int owner = 0;
+	
+	
+	
 }

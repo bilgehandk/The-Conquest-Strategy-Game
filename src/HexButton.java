@@ -8,13 +8,14 @@ import java.awt.Polygon;
 import java.awt.Rectangle;
 import javax.swing.JButton;
 
-public class HexButton extends JButton {
+public class HexButton extends JButton implements Area{
 
     private static final long serialVersionUID = 8703517515706326251L;
     Polygon bounds;
     String character;
     Boolean clicked;
     int btnIndex;
+    
     public int getBtnIndex() {
 		return btnIndex;
 	}

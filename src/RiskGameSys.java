@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class RiskGameSys {
-/*
-	private static ArrayList<Area> Areas = new ArrayList<Area>();
+
+	private static ArrayList<HexButton> Areas = new ArrayList<HexButton>();
 	private static Player player1;
 	private static Player player2;
 	
@@ -49,5 +49,5 @@ public class RiskGameSys {
 		}
 	}
 	
-	*/
+	
 }

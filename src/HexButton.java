@@ -12,14 +12,25 @@ public class HexButton extends JButton {
 
     private static final long serialVersionUID = 8703517515706326251L;
     Polygon bounds;
-    Character character;
+    String character;
     Boolean clicked;
+    int btnIndex;
+    public int getBtnIndex() {
+		return btnIndex;
+	}
+
+	public void setBtnIndex(int btnIndex) {
+		this.btnIndex = btnIndex;
+	}
+
+	int owner;
 
     /**
      * Creates a hexagonal button with a single character label
      * @param character
      */
-    public HexButton(Character character) {
+    public HexButton(String character, int btnIndex) {
+    	this.btnIndex = btnIndex;
         this.calculateBounds();
         this.setBackground(Color.CYAN);
         this.setForeground(Color.GRAY);
@@ -149,4 +160,32 @@ public class HexButton extends JButton {
     public Boolean isClicked() {
         return this.clicked;
     }
+
+	
+
+	public void setBounds(Polygon bounds) {
+		this.bounds = bounds;
+	}
+
+	public String getCharacter() {
+		return character;
+	}
+
+	public void setCharacter(String character) {
+		this.character = character;
+	}
+
+	public Boolean getClicked() {
+		return clicked;
+	}
+
+	public void setClicked(Boolean clicked) {
+		this.clicked = clicked;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+    
+    
 }

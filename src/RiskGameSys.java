@@ -1,14 +1,15 @@
+import java.util.ArrayList;
 
 public class RiskGameSys {
-
-	private static ArrayList<Area> areas = new ArrayList<Area>();
+/*
+	private static ArrayList<Area> Areas = new ArrayList<Area>();
 	private static Player player1;
 	private static Player player2;
 	
 	
 	public void buySoldier(int numberOfSoldier, int index)
 	{
-		int priceOfSoldier = numberOfSolider*10;
+		int priceOfSoldier = numberOfSoldier *10;
 		if(player1.getIsTurn())
 		{
 			if(Areas.get(index).equals(Areas))
@@ -48,5 +49,5 @@ public class RiskGameSys {
 		}
 	}
 	
-	
+	*/
 }

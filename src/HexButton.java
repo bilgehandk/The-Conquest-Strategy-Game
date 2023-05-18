@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.Rectangle;
+import java.util.ArrayList;
+
 import javax.swing.JButton;
 
 public class HexButton extends JButton implements Area{
@@ -15,6 +17,21 @@ public class HexButton extends JButton implements Area{
     String character;
     Boolean clicked;
     int btnIndex;
+    // AREA HAS-A RELATIONSHIP
+    ArrayList<Soldier> areaSoldier = new ArrayList();
+    
+    
+    public void addDefaultSoldier() {
+    	areaSoldier.add(new Jackman(3,5));
+    }
+    
+    public int getSoldierPower() {
+    	int totalPower = 0;
+    	for(Soldier a : areaSoldier) {
+    		totalPower += a.getCalculatedPower();
+    	}
+    	return totalPower;
+    }
     
     public int getBtnIndex() {
 		return btnIndex;

@@ -58,7 +58,9 @@ public class RiskFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					
 					//btnNewButton.paintComponent(getGraphics());
-					btnNewButton.setCharacter(btnNewButton.getBtnIndex()+"");
+					btnNewButton.addDefaultSoldier();
+					btnNewButton.setCharacter(btnNewButton.getSoldierPower() + "");
+					//btnNewButton.setCharacter(btnNewButton.getBtnIndex()+"");
 				}
 			});
 			hexButtons.get(0).setBounds(17, 6, 75, 75);

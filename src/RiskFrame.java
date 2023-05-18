@@ -21,6 +21,13 @@ public class RiskFrame extends JFrame {
 
 	private JPanel contentPane;
 	
+	 public HexButton searchClicked() {
+	    	for(HexButton a : hexButtons) {
+	    		if(a.isClicked)
+	    			return a;
+	    	}
+	    	return null;
+	   }
 
 	/**
 	 * Launch the application.
@@ -57,17 +64,23 @@ public class RiskFrame extends JFrame {
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					
-					//btnNewButton.paintComponent(getGraphics());
 					btnNewButton.addDefaultSoldier();
 					btnNewButton.setCharacter(btnNewButton.getSoldierPower() + "");
+					
+					if(searchClicked() == null) {
+						btnNewButton.isClicked = true;
+					}else {
+						HexButton found = searchClicked();
+						if(btnNewButton.getSoldierPower() == found.getSoldierPower())
+							System.out.println("It is equal");
+					}
+					//btnNewButton.paintComponent(getGraphics());
+					
 					//btnNewButton.setCharacter(btnNewButton.getBtnIndex()+"");
 				}
 			});
 			hexButtons.get(0).setBounds(17, 6, 75, 75);
 			contentPane.add(hexButtons.get(0));
-			
-			
-		
 		}
 		
 		//HexButton btnNewButton = new HexButton("b");

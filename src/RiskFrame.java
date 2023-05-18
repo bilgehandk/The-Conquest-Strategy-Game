@@ -14,6 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
 import java.awt.Graphics;
+import javax.swing.JTextArea;
 
 public class RiskFrame extends JFrame {
 	ArrayList<HexButton> hexButtons= new ArrayList<>();
@@ -48,7 +49,6 @@ public class RiskFrame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		Icon icon = new ImageIcon("./hexagon.png");
 		
 		for(int i=0; i<42; i++) {
@@ -63,6 +63,8 @@ public class RiskFrame extends JFrame {
 			});
 			hexButtons.get(0).setBounds(17, 6, 75, 75);
 			contentPane.add(hexButtons.get(0));
+			
+			
 		
 		}
 		
@@ -83,6 +85,7 @@ public class RiskFrame extends JFrame {
 		//HexButton btnNewButton_1 = new HexButton("1");
 		hexButtons.get(1).setBounds(67, 34, 75, 75);
 		contentPane.add(hexButtons.get(1));
+		contentPane.setLayout(null);
 		
 		/*
 		

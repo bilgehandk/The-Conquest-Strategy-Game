@@ -187,6 +187,8 @@ public class HexButton extends JButton implements Area{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	
     
     
 }

@@ -59,32 +59,6 @@ public class RiskFrame extends JFrame {
 		Icon icon = new ImageIcon("./hexagon.png");
 		
 		for(int i=0; i<42; i++) {
-<<<<<<< Updated upstream
-			if(i==0 || i==39)
-			{
-				firstPlayerButton = new HexButton("30",i);
-				hexButtons.add(i,firstPlayerButton);
-			}
-			else {
-				HexButton btnNewButton = new HexButton("b", i);
-				hexButtons.add(btnNewButton);
-				btnNewButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						
-						btnNewButton.addDefaultSoldier();
-						btnNewButton.setCharacter(btnNewButton.getSoldierPower() + "");
-						
-						if(searchClicked() == null) {
-							btnNewButton.isClicked = true;
-						}else {
-							HexButton found = searchClicked();
-							if(btnNewButton.getSoldierPower() == found.getSoldierPower())
-								System.out.println("It is equal");
-						}
-						//btnNewButton.paintComponent(getGraphics());
-						
-						//btnNewButton.setCharacter(btnNewButton.getBtnIndex()+"");
-=======
 			
 			HexButton btnNewButton = i == 0 || i == 39 ? new HexButton("a",i) : new HexButton("b", i);
 			hexButtons.add(btnNewButton);
@@ -100,7 +74,6 @@ public class RiskFrame extends JFrame {
 						HexButton found = searchClicked();
 						if(btnNewButton.getSoldierPower() == found.getSoldierPower())
 							System.out.println("It is equal");
->>>>>>> Stashed changes
 					}
 					//btnNewButton.paintComponent(getGraphics());
 					

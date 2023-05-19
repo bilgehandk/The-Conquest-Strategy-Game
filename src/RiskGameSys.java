@@ -41,6 +41,29 @@ public class RiskGameSys {
 		return null;
 	}
 	
+	
+	public static Color setFirstColor(String color)
+	{
+		switch (color) {
+		case "Red":
+			return Color.RED;
+		case "Green":
+			return Color.GREEN;
+		case "Blue":
+			return Color.BLUE;
+		case "Yellow":
+			return Color.YELLOW;
+		case "Purple":
+			return Color.PINK;
+		case "Orange":
+			return Color.ORANGE;
+		default:
+			break;
+		}
+		
+		return null;
+	}
+	
 	public void changeColor(String color)
 	{
 		HexButton area;
@@ -86,47 +109,5 @@ public class RiskGameSys {
 		return true;
 		
 	}
-	
-//	public void buySoldier(int numberOfSoldier, int index)
-//	{
-//		int priceOfSoldier = numberOfSoldier *10;
-//		if(player1.getIsTurn())
-//		{
-//			if(Areas.get(index).equals(Areas))
-//			{
-//				if(player1.getGold() >= priceOfSoldier)
-//				{
-//					Areas.add(index, numberOfSoldier);
-//				}
-//				else {
-//					System.out.println("Your money is not enough. Try with less soldier amount.");
-//				}
-//				
-//			}	
-//			else {
-//				System.out.println("You need to enter less number of soldier");
-//			}
-//		}
-//	}
-//	
-//	public void checkPlace()
-//	{
-//		if(player1.getisturn() && areas.owner == 1)
-//		{
-//			areas.viewpanelmarket();
-//		}
-//		else if(player1.getisturn() && (areas.owner == 2 || areas.owner == 0))
-//		{
-//			areas.viewpanelattack();
-//		}
-//		else if(player2.getisturn() && areas.owner == 2)
-//		{
-//			areas.viewpanelmarket();
-//		}
-//		else
-//		{
-//			areas.viewpanelattack();
-//		}
-//	}
-//	
+
 }

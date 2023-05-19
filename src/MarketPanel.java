@@ -9,6 +9,7 @@ import java.awt.Font;
 import javax.swing.JTextPane;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
 
 public class MarketPanel extends JFrame {
 
@@ -58,6 +59,7 @@ public class MarketPanel extends JFrame {
 		getContentPane().add(lblNewLabel_1);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Jackman", "Archer", "Spearman"}));
 		comboBox.setBounds(324, 147, 158, 21);
 		getContentPane().add(comboBox);
 		

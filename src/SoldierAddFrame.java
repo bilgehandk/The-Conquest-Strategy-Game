@@ -23,7 +23,7 @@ public class SoldierAddFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SoldierAddFrame() {
+	public SoldierAddFrame(HexButton sent) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -54,7 +54,11 @@ public class SoldierAddFrame extends JFrame {
 		applyBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int amount = Integer.parseInt(soldierAmount.getText());
-				String soldierType = soldiercmbBox.getSelectedItem().toString();				
+				int index = soldiercmbBox.getSelectedIndex();
+				//System.out.println(amount + soldierType);
+				sent.addSoldier(index, amount);
+				sent.setCharacter(sent.getSoldierPower()+"");
+				dispose();
 			}
 		});
 		applyBtn.setBounds(109, 175, 117, 29);

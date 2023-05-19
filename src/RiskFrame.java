@@ -18,6 +18,8 @@ import javax.swing.JTextArea;
 
 public class RiskFrame extends JFrame {
 	ArrayList<HexButton> hexButtons= new ArrayList<>();
+	
+	SoldierAddFrame soldierAddFrame;
 
 	private JPanel contentPane;
 	
@@ -65,10 +67,13 @@ public class RiskFrame extends JFrame {
 			hexButtons.add(btnNewButton);
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					soldierAddFrame = new SoldierAddFrame(btnNewButton);
+					soldierAddFrame.setVisible(true);
 					
-					btnNewButton.addDefaultSoldier();
-					btnNewButton.setCharacter(btnNewButton.getSoldierPower() + "");
+					//btnNewButton.addDefaultSoldier();
+					//System.out.println(btnNewButton);
 					
+					//btnNewButton.setCharacter(btnNewButton.getSoldierPower() + "");	
 					if(searchClicked() == null) {
 						btnNewButton.isClicked = true;
 					}else {
@@ -80,7 +85,7 @@ public class RiskFrame extends JFrame {
 					
 					//btnNewButton.setCharacter(btnNewButton.getBtnIndex()+"");
 				}
-			});
+			});	
 			hexButtons.get(0).setBounds(17, 6, 75, 75);
 			contentPane.add(hexButtons.get(0));
 		}

@@ -74,4 +74,60 @@ public class RiskGameSys {
 		
 	}
 	
+	public static boolean addSoldier(HexButton a, int amount, String type) {
+		if(type.equalsIgnoreCase("Jackman")) {
+			a.addSoldier(0, amount);
+		}else if(type.equalsIgnoreCase("Archer")) {
+			a.addSoldier(1, amount);
+		}else if(type.equalsIgnoreCase("Spearman")){
+			a.addSoldier(2, amount);
+		}else {
+			return false;
+		}
+		return true;
+		
+	}
+	
+//	public void buySoldier(int numberOfSoldier, int index)
+//	{
+//		int priceOfSoldier = numberOfSoldier *10;
+//		if(player1.getIsTurn())
+//		{
+//			if(Areas.get(index).equals(Areas))
+//			{
+//				if(player1.getGold() >= priceOfSoldier)
+//				{
+//					Areas.add(index, numberOfSoldier);
+//				}
+//				else {
+//					System.out.println("Your money is not enough. Try with less soldier amount.");
+//				}
+//				
+//			}	
+//			else {
+//				System.out.println("You need to enter less number of soldier");
+//			}
+//		}
+//	}
+//	
+//	public void checkPlace()
+//	{
+//		if(player1.getisturn() && areas.owner == 1)
+//		{
+//			areas.viewpanelmarket();
+//		}
+//		else if(player1.getisturn() && (areas.owner == 2 || areas.owner == 0))
+//		{
+//			areas.viewpanelattack();
+//		}
+//		else if(player2.getisturn() && areas.owner == 2)
+//		{
+//			areas.viewpanelmarket();
+//		}
+//		else
+//		{
+//			areas.viewpanelattack();
+//		}
+//	}
+//	
 }

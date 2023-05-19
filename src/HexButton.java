@@ -16,15 +16,26 @@ public class HexButton extends JButton implements Area{
     Polygon bounds;
     String character;
     Boolean clicked;
+    int flag = 0;
     int btnIndex;
     // AREA HAS-A RELATIONSHIP
     boolean isClicked = false;
     
-   
+    ArrayList<Soldier> areaSoldier = new ArrayList();
     
-    
-    public void addDefaultSoldier() {
-    	areaSoldier.add(new Jackman(5));
+//    
+//    public void addDefaultSoldier() {
+//    	areaSoldier.add(new Jackman(5));
+//    }
+//    
+    public void addSoldier(int i, int amount) {
+    	if(i == 0) {
+    		areaSoldier.add(new Jackman(amount));
+    	}else if(i == 1) {
+    		areaSoldier.add(new Archer(amount));
+    	}else {
+    		areaSoldier.add(new Spearman(amount));
+    	}
     }
     
     public int getSoldierPower() {

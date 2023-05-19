@@ -21,8 +21,6 @@ public class RiskFrame extends JFrame {
 
 	private JPanel contentPane;
 	
-	
-	
 	 public HexButton searchClicked() {
 	    	for(HexButton a : hexButtons) {
 	    		if(a.isClicked)
@@ -95,7 +93,7 @@ public class RiskFrame extends JFrame {
 			}
 		});
 		*/
-		
+		/*
 		hexButtons.get(0).setBounds(17, 6, 75, 75);
 		contentPane.add(hexButtons.get(0));
 		
@@ -104,8 +102,57 @@ public class RiskFrame extends JFrame {
 		contentPane.add(hexButtons.get(1));
 		contentPane.setLayout(null);
 		
-		/*
+		*/
 		
+		
+		
+		
+		int x1=17,y1=6,k=0;
+		
+		
+		for(int j=1;j<=4;j++) {
+		
+		boolean yc=true;
+		for(int i=0;i<500;i+=50)
+		{
+		
+			if(yc)
+			{
+				hexButtons.get(k).setBounds(x1+i, y1, 75, 75);
+				contentPane.add(hexButtons.get(k));
+				y1+=28;
+				yc=false;
+			}
+			
+			else
+			{
+				hexButtons.get(k).setBounds(x1+i, y1, 75, 75);
+				contentPane.add(hexButtons.get(k));
+				y1-=28;
+				yc=true;
+			}
+			
+			
+			k++;
+			
+			
+			
+		}
+		
+		x1=17;
+		y1+=56;
+		
+}
+		
+	
+		
+		contentPane.setLayout(null);
+		
+		
+		
+	
+		
+		/*
 		HexButton btnNewButton_2 = new HexButton("1");
 		btnNewButton_2.setBounds(117, 6, 75, 75);
 		contentPane.add(btnNewButton_2);

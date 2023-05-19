@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class RiskGameSys {
 
-//	private static ArrayList<HexButton> Areas = new ArrayList<HexButton>();
-//	private static Player player1;
-//	private static Player player2;
-//	
-//	
+	private static ArrayList<HexButton> Areas = new ArrayList<HexButton>();
+	private static Player player1;
+	private static Player player2;
+	
+	
 //	public void buySoldier(int numberOfSoldier, int index)
 //	{
 //		int priceOfSoldier = numberOfSoldier *10;
@@ -31,21 +31,21 @@ public class RiskGameSys {
 //	
 //	public void checkPlace()
 //	{
-//		if(player1.getIsTurn() && Areas.owner == 1)
+//		if(player1.getisturn() && areas.owner == 1)
 //		{
-//			Areas.viewPanelMarket();
+//			areas.viewpanelmarket();
 //		}
-//		else if(player1.getIsTurn() && (Areas.owner == 2 || Areas.owner == 0))
+//		else if(player1.getisturn() && (areas.owner == 2 || areas.owner == 0))
 //		{
-//			Areas.viewPanelAttack();
+//			areas.viewpanelattack();
 //		}
-//		else if(player2.getIsTurn() && Areas.owner == 2)
+//		else if(player2.getisturn() && areas.owner == 2)
 //		{
-//			Areas.viewPanelMarket();
+//			areas.viewpanelmarket();
 //		}
 //		else
 //		{
-//			Areas.viewPanelAttack();
+//			areas.viewpanelattack();
 //		}
 //	}
 //	

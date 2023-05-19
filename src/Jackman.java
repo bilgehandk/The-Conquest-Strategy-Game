@@ -1,8 +1,10 @@
 
 public class Jackman extends Soldier{
 
-	public Jackman(int power, int count) {
-		super(power, count);
+	
+	public Jackman(int count) {
+		super(count);
+		super.power = 5;
 		// TODO Auto-generated constructor stub
 	}
 

@@ -15,9 +15,9 @@ public class SoldierMaintrial {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Jackman a = new Jackman(3,5);
-		Archer b = new Archer(3,4);		
-		Spearman c = new Spearman(3,6);
+		Jackman a = new Jackman(5);
+		Archer b = new Archer(4);		
+		Spearman c = new Spearman(6);
 		soldierin.add(a);
 		soldierin.add(b);
 		soldierin.add(c);

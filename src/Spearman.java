@@ -1,8 +1,10 @@
 
 public class Spearman extends Soldier{
 
-	public Spearman(int power, int count) {
-		super(power, count);
+	
+	public Spearman(int count) {
+		super(count);
+		super.power = 3;
 		// TODO Auto-generated constructor stub
 	}
 

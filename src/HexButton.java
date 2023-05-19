@@ -25,7 +25,7 @@ public class HexButton extends JButton implements Area{
     
     
     public void addDefaultSoldier() {
-    	areaSoldier.add(new Jackman(3,5));
+    	areaSoldier.add(new Jackman(5));
     }
     
     public int getSoldierPower() {

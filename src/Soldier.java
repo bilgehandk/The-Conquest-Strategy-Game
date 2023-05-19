@@ -2,8 +2,7 @@
 public abstract class Soldier {
 	protected int power, count;
 	
-	public Soldier(int power, int count) {
-		this.power = power ;
+	public Soldier(int count) {
 		this.count = count;
 	}
 	

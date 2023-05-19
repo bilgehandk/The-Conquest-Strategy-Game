@@ -21,6 +21,8 @@ public class RiskFrame extends JFrame {
 
 	private JPanel contentPane;
 	
+	
+	
 	 public HexButton searchClicked() {
 	    	for(HexButton a : hexButtons) {
 	    		if(a.isClicked)

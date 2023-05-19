@@ -1,8 +1,9 @@
 
 public class Archer extends Soldier{
 
-	public Archer(int power, int count) {
-		super(power, count);
+	private final int power = 2;
+	public Archer(int count) {
+		super(count);
 		// TODO Auto-generated constructor stub
 	}
 

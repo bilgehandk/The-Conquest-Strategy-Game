@@ -66,8 +66,7 @@ public class RiskGameSys {
 		
 		int money1 = player1.getGold();
 		int money2 = player2.getGold();
-		if(player2.countRound())
-		{
+		if(player2.countRound()){
 			player1.setGold(money1+10);
 			player2.setGold(money2+10);
 		}

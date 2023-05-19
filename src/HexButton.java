@@ -18,7 +18,6 @@ public class HexButton extends JButton implements Area{
     Boolean clicked;
     int btnIndex;
     // AREA HAS-A RELATIONSHIP
-    ArrayList<Soldier> areaSoldier = new ArrayList();
     boolean isClicked = false;
     
    

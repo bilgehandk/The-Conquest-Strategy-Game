@@ -55,6 +55,29 @@ public class RiskGameSys {
 		return null;
 	}
 	
+	
+	public static Color setFirstColor(String color)
+	{
+		switch (color) {
+		case "Red":
+			return Color.RED;
+		case "Green":
+			return Color.GREEN;
+		case "Blue":
+			return Color.BLUE;
+		case "Yellow":
+			return Color.YELLOW;
+		case "Purple":
+			return Color.PINK;
+		case "Orange":
+			return Color.ORANGE;
+		default:
+			break;
+		}
+		
+		return null;
+	}
+	
 	public void changeColor(String color)
 	{
 		HexButton area;

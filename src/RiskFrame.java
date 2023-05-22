@@ -95,26 +95,7 @@ public class RiskFrame extends JFrame {
 			contentPane.add(hexButtons.get(0));
 		}
 		
-		//HexButton btnNewButton = new HexButton("b");
-		/*
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				e.
-				//btnNewButton.paintComponent(getGraphics());
-				btnNewButton.setCharacter("534");
-			}
-		});
-		*/
-		/*
-		hexButtons.get(0).setBounds(17, 6, 75, 75);
-		contentPane.add(hexButtons.get(0));
 		
-		//HexButton btnNewButton_1 = new HexButton("1");
-		hexButtons.get(1).setBounds(67, 34, 75, 75);
-		contentPane.add(hexButtons.get(1));
-		contentPane.setLayout(null);
-		
-		*/
 		
 		
 		

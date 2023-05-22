@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Player {
 	private boolean isTurn = false;
@@ -6,12 +7,31 @@ public class Player {
 	private String color;
 	private String nickname;
 	private String file;
+	
+	private static ArrayList<HexButton> playerArrList = new ArrayList();
 
 	public Player(String nickname, String color) {
 		this.nickname = nickname;
 		this.color = color;
 	}
 
+	public boolean getTurn() {
+		return isTurn;
+	}
+	public static boolean searchButton(HexButton a) {
+		for(HexButton hex : playerArrList) {
+			if(hex.getBtnIndex() == a.getBtnIndex())
+				return true;
+		}
+		return false;
+	}
+	public static boolean addBtn2Arr(HexButton a) {
+		if(!searchButton(a)) {
+			playerArrList.add(a);
+		}
+		return false;
+	}
+	
 	public boolean isTurn() {
 		return isTurn;
 	}

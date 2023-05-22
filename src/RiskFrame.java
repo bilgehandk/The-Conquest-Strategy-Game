@@ -45,6 +45,8 @@ public class RiskFrame extends JFrame {
 	 */
 	public RiskFrame(Player player1, Player player2) {
 		player1.setGold(100);
+		player2.setGold(100);
+		player1.setTurn(true);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 600);
@@ -56,7 +58,6 @@ public class RiskFrame extends JFrame {
 		Icon icon = new ImageIcon("./hexagon.png");
 		
 		for(int i=0; i<42; i++) {
-			
 			if(i == 0) {
 				HexButton player1SpawnPoint = new HexButton(player1.getNickname(), i); 
 				hexButtons.add(player1SpawnPoint);
@@ -68,9 +69,12 @@ public class RiskFrame extends JFrame {
 				hexButtons.add(btnNewButton);
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
+						
+						
+						soldierAddFrame = player1.isTurn() ? new SoldierAddFrame(btnNewButton,player1) : new SoldierAddFrame(btnNewButton,player2);
 						soldierAddFrame.setVisible(true);
 						
+						player2.setTurn(true);
 						
 						//btnNewButton.addDefaultSoldier();
 						//System.out.println(btnNewButton);

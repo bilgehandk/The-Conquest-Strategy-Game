@@ -81,7 +81,8 @@ public class SoldierAddFrame extends JFrame {
 					errorMsg.setText("NOT ENOUGH GOLD TO PURCHASE");
 				else {
 					RiskGameSys.buySoldier(player, price);
-					
+					System.out.println(player.getColor());
+					player.setTurn(false);
 					dispose();
 				}
 			}

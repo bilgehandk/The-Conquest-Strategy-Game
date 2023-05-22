@@ -81,6 +81,17 @@ public class RiskGameSys {
 		return null;
 	}
 	
+	public static Player whoIsTurn() {
+		if(player1.isTurn())
+			return player1;
+		else
+			return player2;
+	}
+	
+	public static void changeTurn() {
+		player1.setTurn(!player1.getTurn());
+		player2.setTurn(!player2.getTurn());
+	}
 	public void changeColor(String color)
 	{
 		HexButton area;
@@ -138,11 +149,6 @@ public class RiskGameSys {
 		player1.setTurn(true);
 		player2.setTurn(false);
 		while(roundCount < 50) {
-			
-			
-			
-			
-			
 			
 			
 			

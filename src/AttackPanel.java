@@ -14,11 +14,13 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JToggleButton;
+import javax.swing.JCheckBox;
 
 public class AttackPanel extends JFrame {
 
 	private JPanel contentPane;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -43,7 +45,7 @@ public class AttackPanel extends JFrame {
 	
 	public AttackPanel() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 601, 375);
+		setBounds(100, 100, 601, 341);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -51,48 +53,69 @@ public class AttackPanel extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Attack Panel");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 27));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 27));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(221, 20, 190, 27);
+		lblNewLabel.setBounds(198, 20, 190, 27);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("How many soldier will you use?");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.ITALIC, 15));
-		lblNewLabel_1.setBounds(32, 161, 216, 33);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(32, 149, 216, 33);
 		contentPane.add(lblNewLabel_1);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		textArea.setBounds(355, 167, 159, 27);
+		textArea.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textArea.setBounds(355, 154, 159, 27);
 		contentPane.add(textArea);
 		
 		JLabel lblNewLabel_2 = new JLabel("Which soldier type will you use?");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.ITALIC, 15));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_2.setBounds(32, 68, 235, 20);
 		contentPane.add(lblNewLabel_2);
 		
-		JButton btnNewButton = new JButton("Attack");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNewButton.setBounds(250, 243, 117, 27);
-		contentPane.add(btnNewButton);
+		JButton btnAttackButton = new JButton("Attack!!");
+		btnAttackButton.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnAttackButton.setBounds(69, 240, 134, 40);
+		contentPane.add(btnAttackButton);
 		
 		JRadioButton rdbtnJackmanButton = new JRadioButton("Jackman");
 		buttonGroup.add(rdbtnJackmanButton);
-		rdbtnJackmanButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbtnJackmanButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		rdbtnJackmanButton.setBounds(355, 70, 134, 21);
 		contentPane.add(rdbtnJackmanButton);
 		
 		JRadioButton rdbtnSpearRadioButton = new JRadioButton("Spear Solider");
 		buttonGroup.add(rdbtnSpearRadioButton);
-		rdbtnSpearRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbtnSpearRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		rdbtnSpearRadioButton.setBounds(355, 114, 134, 21);
 		contentPane.add(rdbtnSpearRadioButton);
 		
 		JRadioButton rdbtnArcherRadioButton = new JRadioButton("Archer");
 		buttonGroup.add(rdbtnArcherRadioButton);
-		rdbtnArcherRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		rdbtnArcherRadioButton.setBounds(355, 91, 134, 21);
+		rdbtnArcherRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		rdbtnArcherRadioButton.setBounds(355, 93, 134, 21);
 		contentPane.add(rdbtnArcherRadioButton);
+		
+		JButton btnSkipButton = new JButton("Skip Round");
+		btnSkipButton.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnSkipButton.setBounds(355, 240, 169, 40);
+		contentPane.add(btnSkipButton);
+		
+		JLabel lblNewLabel_3 = new JLabel("Do you want to add diffrent type of soldier ?");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_3.setBounds(32, 196, 298, 20);
+		contentPane.add(lblNewLabel_3);
+		
+		JCheckBox chckbxYesCheckBox = new JCheckBox("Yes");
+		buttonGroup_1.add(chckbxYesCheckBox);
+		chckbxYesCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chckbxYesCheckBox.setBounds(355, 198, 93, 21);
+		contentPane.add(chckbxYesCheckBox);
+		
+		JCheckBox chckbxNoCheckBox = new JCheckBox("No");
+		buttonGroup_1.add(chckbxNoCheckBox);
+		chckbxNoCheckBox.setBounds(461, 198, 93, 21);
+		contentPane.add(chckbxNoCheckBox);
 		
 	       
 	}

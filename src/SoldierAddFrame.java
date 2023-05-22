@@ -58,6 +58,8 @@ public class SoldierAddFrame extends JFrame {
 				//System.out.println(amount + soldierType);
 				sent.addSoldier(index, amount);
 				sent.setCharacter(sent.getSoldierPower()+"");
+				RiskGameSys.increaseRoundCount();
+				System.out.println(RiskGameSys.getRoundCount());
 				dispose();
 			}
 		});

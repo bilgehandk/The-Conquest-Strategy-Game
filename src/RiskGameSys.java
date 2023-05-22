@@ -7,8 +7,22 @@ public class RiskGameSys {
 	private static ArrayList<HexButton> Areas = new ArrayList<HexButton>();
 	private static Player player1;
 	private static Player player2;
+	private static int roundCount = 1;
+	private static int roundNum = 1;
 	
+	public static void increaseRoundCount() {
+		roundCount++;
+	}
+	public static int getRoundCount() {
+		return roundCount;
+	}
+	public static void increaseRound() {
+		roundNum++ ;
+	}
 	
+	public static int getRound() {
+		return roundNum;
+	}
 
 	public Player getWinner()
 	{
@@ -61,17 +75,17 @@ public class RiskGameSys {
 		}
 	}
 	
-	public void IncreaseMoney()
-	{
-		
-		int money1 = player1.getGold();
-		int money2 = player2.getGold();
-		if(player2.countRound()){
-			player1.setGold(money1+10);
-			player2.setGold(money2+10);
-		}
-		
-	}
+//	public void IncreaseMoney()
+//	{
+//		
+//		int money1 = player1.getGold();
+//		int money2 = player2.getGold();
+//		if(player2.countRound()){
+//			player1.setGold(money1+10);
+//			player2.setGold(money2+10);
+//		}
+//		
+//	}
 	
 	public static boolean addSoldier(HexButton a, int amount, String type) {
 		if(type.equalsIgnoreCase("Jackman")) {
@@ -87,6 +101,10 @@ public class RiskGameSys {
 		
 	}
 	
+	
+	public static void changeColor(Player player) {
+		
+	}
 //	public void buySoldier(int numberOfSoldier, int index)
 //	{
 //		int priceOfSoldier = numberOfSoldier *10;

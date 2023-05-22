@@ -18,6 +18,7 @@ public class HexButton extends JButton implements Area{
     Boolean clicked;
     int flag = 0;
     int btnIndex;
+    int owner = 0;
     // AREA HAS-A RELATIONSHIP
     boolean isClicked = false;
     
@@ -54,8 +55,6 @@ public class HexButton extends JButton implements Area{
 		this.btnIndex = btnIndex;
 	}
 
-	int owner;
-
     /**
      * Creates a hexagonal button with a single character label
      * @param character
@@ -63,8 +62,8 @@ public class HexButton extends JButton implements Area{
     public HexButton(String character, int btnIndex) {
     	this.btnIndex = btnIndex;
         this.calculateBounds();
-        this.setBackground(Color.CYAN);
-        this.setForeground(Color.GRAY);
+        this.setBackground(Color.GRAY);
+        this.setForeground(Color.WHITE);
         this.character = character;
         this.clicked = false;
 		this.setOpaque(true);
@@ -217,8 +216,8 @@ public class HexButton extends JButton implements Area{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
-    
+	public void setOwnership(int owner) {
+		this.owner = owner;
+	}
     
 }

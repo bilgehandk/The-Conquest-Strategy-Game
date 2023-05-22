@@ -3,17 +3,14 @@ public class Player {
 	private boolean isTurn = false;
 	private int gold;
 	private int round;
+	private String color;
 	private String nickname;
 	private String file;
 
-	
-	public boolean countRound()
-	{
-		round++;
-		
-		return true;
+	public Player(String nickname, String color) {
+		this.nickname = nickname;
+		this.color = color;
 	}
-
 
 	public boolean isTurn() {
 		return isTurn;
@@ -54,15 +51,8 @@ public class Player {
 		this.nickname = nickname;
 	}
 
-
-	public String getFile() {
-		return file;
+	public String getColor() {
+		return color;
 	}
-
-
-	public void setFile(String file) {
-		this.file = file;
-	}
-	
 	
 }

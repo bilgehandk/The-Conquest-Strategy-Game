@@ -9,6 +9,9 @@ public class RiskGameSys {
 	private static Player player2;
 	private static int roundCount = 1;
 	private static int roundNum = 1;
+	private static final int ROUND = 50;
+	
+	
 	
 	public static void increaseRoundCount() {
 		roundCount++;
@@ -125,49 +128,26 @@ public class RiskGameSys {
 	}
 	
 	
-	public static void changeColor(Player player) {
+	
+	public static void startTheConquest() {
 		
+		player1.setGold(10);
+		player2.setGold(10);
+		player1.setTurn(true);
+		player2.setTurn(false);
+		while(roundCount < 50) {
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			increaseRoundCount();
+		}
 	}
-//	public void buySoldier(int numberOfSoldier, int index)
-//	{
-//		int priceOfSoldier = numberOfSoldier *10;
-//		if(player1.getIsTurn())
-//		{
-//			if(Areas.get(index).equals(Areas))
-//			{
-//				if(player1.getGold() >= priceOfSoldier)
-//				{
-//					Areas.add(index, numberOfSoldier);
-//				}
-//				else {
-//					System.out.println("Your money is not enough. Try with less soldier amount.");
-//				}
-//				
-//			}	
-//			else {
-//				System.out.println("You need to enter less number of soldier");
-//			}
-//		}
-//	}
-//	
-//	public void checkPlace()
-//	{
-//		if(player1.getisturn() && areas.owner == 1)
-//		{
-//			areas.viewpanelmarket();
-//		}
-//		else if(player1.getisturn() && (areas.owner == 2 || areas.owner == 0))
-//		{
-//			areas.viewpanelattack();
-//		}
-//		else if(player2.getisturn() && areas.owner == 2)
-//		{
-//			areas.viewpanelmarket();
-//		}
-//		else
-//		{
-//			areas.viewpanelattack();
-//		}
-//	}
-//	
+	
 }

@@ -1,6 +1,7 @@
 
 public abstract class Soldier {
 	protected int power, count;
+	protected static int price;
 	
 	public Soldier(int count) {
 		this.count = count;
@@ -24,6 +25,7 @@ public abstract class Soldier {
 	public void setCount(int count) {
 		this.count = count;
 	}
+	
 	
 	
 }

@@ -44,7 +44,7 @@ public class RiskFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public RiskFrame(Player player1, Player player2) {
-		player1.setGold(5);
+		player1.setGold(100);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 600);

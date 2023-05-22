@@ -127,7 +127,9 @@ public class RiskGameSys {
 		
 	}
 	
-	
+	public static void buySoldier(Player player, int price) {
+		player.setGold(player.getGold() - price);
+	}
 	
 	public static void startTheConquest() {
 		

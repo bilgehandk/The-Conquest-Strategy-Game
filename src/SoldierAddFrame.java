@@ -54,7 +54,7 @@ public class SoldierAddFrame extends JFrame {
 		
 
 		JLabel errorMsg = new JLabel("");
-		errorMsg.setBounds(21, 16, 191, 16);
+		errorMsg.setBounds(21, 16, 269, 16);
 		contentPane.add(errorMsg);
 		
 		
@@ -63,6 +63,7 @@ public class SoldierAddFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int amount = Integer.parseInt(soldierAmount.getText());
 				int index = soldiercmbBox.getSelectedIndex();
+				int price;
 				//System.out.println(amount + soldierType);
 				sent.addSoldier(index, amount);
 				sent.setCharacter(sent.getSoldierPower()+"");
@@ -70,14 +71,19 @@ public class SoldierAddFrame extends JFrame {
 				System.out.println(RiskGameSys.getRoundCount());
 				
 				if(index == 0) {
-					if(amount * Jackman.getPrice() > player.getGold()) {
-						errorMsg.setText("NOT ENOUGH GOLD TO PURCHASE");
-					}else {
-						dispose();
-					}
+					price = amount * Jackman.getPrice();
+				}else if(index == 1)
+					price = amount * Archer.getPrice();
+				else
+					price = amount * Spearman.getPrice();
+				
+				if(price > player.getGold())
+					errorMsg.setText("NOT ENOUGH GOLD TO PURCHASE");
+				else {
+					RiskGameSys.buySoldier(player, price);
+					
+					dispose();
 				}
-				
-				
 			}
 		});
 		applyBtn.setBounds(23, 177, 117, 29);

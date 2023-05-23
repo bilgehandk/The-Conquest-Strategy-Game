@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 
-public class HexButton extends JButton implements Area{
+public class HexButton extends JButton{
 
     private static final long serialVersionUID = 8703517515706326251L;
     Polygon bounds;
@@ -80,6 +80,7 @@ public class HexButton extends JButton implements Area{
 		this.setOpaque(true);
 		this.setBorderPainted(false);
 		this.setContentAreaFilled(false);
+		this.owner = 0;
     }
     
     /**
@@ -197,12 +198,7 @@ public class HexButton extends JButton implements Area{
     
     /**
      * Returns the clicked state of the button
-     */
-    public Boolean isClicked() {
-        return this.clicked;
-    }
-
-	
+     */	
 
 	public void setBounds(Polygon bounds) {
 		this.bounds = bounds;

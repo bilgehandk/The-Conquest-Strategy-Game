@@ -93,16 +93,18 @@ public class RiskFrame extends JFrame {
 										soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
 										soldierAddFrame.setVisible(true);
 										found.isClicked = false;
+										btnNewButton.setOwnership(1);
+										
 										player1.setTurn(false);
 										player2.setTurn(true);
+									}else {
+										attackPanel = new AttackPanel(btnNewButton, found);
+										attackPanel.setVisible(true);
 									}
 								}
 								//soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
 								//btnNewButton.setOwnership(1);	
 							}
-							//player1.setTurn(false);
-							//player2.setTurn(true);
-							
 						}else {
 							if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 2) {
 								if(searchClicked() == null) {
@@ -113,8 +115,12 @@ public class RiskFrame extends JFrame {
 										soldierAddFrame = new SoldierAddFrame(btnNewButton, player2);
 										soldierAddFrame.setVisible(true);
 										found.isClicked = false;
+										btnNewButton.setOwnership(2);
 										player1.setTurn(true);
 										player2.setTurn(false);
+									}else if(found.getOwnership() == 1) {
+										attackPanel = new AttackPanel(btnNewButton, found);
+										attackPanel.setVisible(true);
 									}
 								}
 							//soldierAddFrame = new SoldierAddFrame(btnNewButton, player2);

@@ -19,16 +19,13 @@ public class HexButton extends JButton implements Area{
     int flag = 0;
     int btnIndex;
     int owner = 0;
+    int totalPower = 0;
     // AREA HAS-A RELATIONSHIP
     boolean isClicked = false;
     
     ArrayList<Soldier> areaSoldier = new ArrayList();
     
-//    
-//    public void addDefaultSoldier() {
-//    	areaSoldier.add(new Jackman(5));
-//    }
-//    
+    
     public void addSoldier(int i, int amount) {
     	if(i == 0) {
     		areaSoldier.add(new Jackman(amount));
@@ -39,13 +36,26 @@ public class HexButton extends JButton implements Area{
     	}
     }
     
+    public void clearBtn() {
+    	areaSoldier.clear();
+    	this.totalPower = 0;
+    }
     
     public int getSoldierPower() {
-    	int totalPower = 0;
+    	
     	for(Soldier a : areaSoldier) {
-    		totalPower += a.getCalculatedPower();
+    		this.totalPower += a.getCalculatedPower();
     	}
     	return totalPower;
+    }
+    
+    public int getTotalPower() {
+    	return totalPower;
+    }
+    
+    
+    public void setTotalPower(int totalPower) {
+    	this.totalPower = totalPower;
     }
     
     public int getBtnIndex() {
@@ -222,5 +232,9 @@ public class HexButton extends JButton implements Area{
 	}
     public String getColor() {
     	return Color.BLACK + "";
+    }
+    
+    public int getOwnership(){
+    	return owner;
     }
 }

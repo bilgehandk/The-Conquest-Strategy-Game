@@ -23,6 +23,7 @@ public class RiskFrame extends JFrame {
 	
 	SoldierAddFrame soldierAddFrame;
 	StartPanel startPanel = new StartPanel();
+	AttackPanel attackPanel;
 	
 	
 
@@ -48,6 +49,7 @@ public class RiskFrame extends JFrame {
 		player2.setGold(100);
 		player1.setTurn(true);
 		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 600);
 		contentPane = new JPanel();
@@ -58,32 +60,47 @@ public class RiskFrame extends JFrame {
 		Icon icon = new ImageIcon("./hexagon.png");
 		
 		for(int i=0; i<42; i++) {
+			
 			if(i == 0) {
 				HexButton player1SpawnPoint = new HexButton(player1.getNickname(), i); 
 				hexButtons.add(player1SpawnPoint);
 			}else if(i == 39) {
 				HexButton player2SpawnPoint = new HexButton(player2.getNickname(), i);
 				hexButtons.add(player2SpawnPoint);
+				
 			}else {
+				
 				HexButton btnNewButton = new HexButton("-", i);
 				hexButtons.add(btnNewButton);
+				if(i == 5) {
+					btnNewButton.addSoldier(0, 5);
+					btnNewButton.setCharacter(btnNewButton.getSoldierPower()+"");
+				}else if(i == 15) {
+					btnNewButton.addSoldier(1, 5);
+					btnNewButton.setCharacter(btnNewButton.getSoldierPower()+"");
+				}
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
-						
-						
 						if(player1.isTurn())
 						{
-							soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
+							if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 1) {
+								soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
+								btnNewButton.setOwnership(1);	
+							}
 							player1.setTurn(false);
 							player2.setTurn(true);
+							
 						}else {
+							if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 2) {
 							soldierAddFrame = new SoldierAddFrame(btnNewButton, player2);
+							btnNewButton.setOwnership(2);
+							}
 							player1.setTurn(true);
 							player2.setTurn(false);
+							
 						}
 						soldierAddFrame.setVisible(true);
-						
 						
 						
 						//btnNewButton.addDefaultSoldier();
@@ -94,12 +111,17 @@ public class RiskFrame extends JFrame {
 							btnNewButton.isClicked = true;
 						}else {
 							HexButton found = searchClicked();
-							if(btnNewButton.getSoldierPower() == found.getSoldierPower())
-								System.out.println("It is equal");
+							attackPanel = new AttackPanel(found, btnNewButton);
+							found.isClicked = false;
+							btnNewButton.isClicked = false;
+							attackPanel.setVisible(true);
 						}
-						//btnNewButton.paintComponent(getGraphics());
-						
-						//btnNewButton.setCharacter(btnNewButton.getBtnIndex()+"");
+//						
+//						if(player1.isTurn()) {
+//							if(btnNewButton.getOwnership() == 2) {
+//								attackPanel = new AttackPanel(found, btnNewButton);
+//							}
+//						}
 					}
 				});
 			}

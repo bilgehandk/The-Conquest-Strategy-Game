@@ -81,13 +81,20 @@ public class RiskGameSys {
 		return null;
 	}
 	
-	public static void attackFunc(HexButton attackSide, HexButton defendSide) {
+	public static void attackFunc(HexButton attackSide, HexButton defendSide, int numOfUnit) {
 		
-		if(attackSide.getSoldierPower() > defendSide.getSoldierPower()) {
-			
-			changeColor(attackSide.getColor(), defendSide);
-			
+		if(numOfUnit >= defendSide.getTotalPower()) {
+			attackSide.setTotalPower(attackSide.getTotalPower() - numOfUnit);
+			attackSide.setCharacter(attackSide.getTotalPower() + "");
+			defendSide.setTotalPower(0);
+			defendSide.setCharacter(defendSide.getTotalPower() + "");
+		}else {
+			defendSide.setTotalPower(defendSide.getTotalPower() - numOfUnit);
+			defendSide.setCharacter(defendSide.getTotalPower() + "");
+			attackSide.setTotalPower(attackSide.getTotalPower() - numOfUnit);
+			attackSide.setCharacter(attackSide.getTotalPower() + "");
 		}
+			
 	}
 	
 	public static void changeTurn() {

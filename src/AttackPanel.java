@@ -42,7 +42,7 @@ public class AttackPanel extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Attack Panel");
+		JLabel lblNewLabel = new JLabel("Attack Frame");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 27));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(198, 20, 190, 27);
@@ -61,11 +61,12 @@ public class AttackPanel extends JFrame {
 		JButton btnAttackButton = new JButton("Attack!!");
 		btnAttackButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				RiskGameSys.attackFunc(attackSide, defendSide, Integer.parseInt(txtSoldier.getText()));
+				dispose();
 			}
 		});
 		btnAttackButton.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnAttackButton.setBounds(102, 220, 134, 40);
+		btnAttackButton.setBounds(95, 220, 134, 40);
 		contentPane.add(btnAttackButton);
 		
 		JButton btnSkipButton = new JButton("Skip Round");

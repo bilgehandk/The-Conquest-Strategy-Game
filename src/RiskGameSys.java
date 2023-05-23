@@ -13,18 +13,18 @@ public class RiskGameSys {
 	
 	
 	
-	public static void disableButtons(HexButton hex) {
-		for(HexButton a : RiskFrame.hexButtons) {
-			if(!a.equals(hex) && a.getOwnership() == hex.getOwnership()) {
-				a.setEnabled(false);
-			}
-		}
-	}
-	public static void enableButtons() {
-		for(HexButton a : RiskFrame.hexButtons) {
-			a.setEnabled(true);
-		}
-	}
+//	public static void disableButtons(HexButton hex) {
+//		for(HexButton a : RiskFrame.hexButtons) {
+//			if(!a.equals(hex) && a.getOwnership() == hex.getOwnership()) {
+//				a.setEnabled(false);
+//			}
+//		}
+//	}
+//	public static void enableButtons() {
+//		for(HexButton a : RiskFrame.hexButtons) {
+//			a.setEnabled(true);
+//		}
+//	}
 	
 	public static void increaseRoundCount() {
 		roundCount++;
@@ -40,6 +40,7 @@ public class RiskGameSys {
 		return roundNum;
 	}
 
+	
 	public Player getWinner()
 	{
 		int team1 = 0, team2= 0;
@@ -154,6 +155,7 @@ public class RiskGameSys {
 			RiskFrame.hexButtons.add(i, btn);
 		
 	}
+	
 	
 //	public void IncreaseMoney()
 //	{

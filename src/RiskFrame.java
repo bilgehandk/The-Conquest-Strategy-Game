@@ -94,7 +94,7 @@ public class RiskFrame extends JFrame {
 										soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
 										soldierAddFrame.setVisible(true);
 										found.isClicked = false;
-										found = null;
+										
 										btnNewButton.setOwnership(1);
 										
 										RiskGameSys.changeColor(player1, btnNewButton);
@@ -103,6 +103,9 @@ public class RiskFrame extends JFrame {
 									}else if(found.getOwnership() == 2){
 										attackPanel = new AttackPanel(btnNewButton, found);
 										attackPanel.setVisible(true);
+									}else {
+										found.isClicked = false;
+										btnNewButton.isClicked = false;
 									}
 								}
 								//soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
@@ -133,15 +136,18 @@ public class RiskFrame extends JFrame {
 									}else if(found.getOwnership() == 1) {
 										attackPanel = new AttackPanel(btnNewButton, found);
 										attackPanel.setVisible(true);
+									}else {
+										found.isClicked = false;
+										btnNewButton.isClicked = false;
 									}
 								}
 							//soldierAddFrame = new SoldierAddFrame(btnNewButton, player2);
 							//btnNewButton.setOwnership(2);
 							}else {
 								HexButton found = searchClicked();
-								found.isClicked = false;
 								attackPanel = new AttackPanel(found, btnNewButton);
 								attackPanel.setVisible(true);
+								found.isClicked = false;
 								player1.setTurn(true);
 								player2.setTurn(false);
 							}

@@ -13,6 +13,19 @@ public class RiskGameSys {
 	
 	
 	
+	public static void disableButtons(HexButton hex) {
+		for(HexButton a : RiskFrame.hexButtons) {
+			if(!a.equals(hex) && a.getOwnership() == hex.getOwnership()) {
+				a.setEnabled(false);
+			}
+		}
+	}
+	public static void enableButtons() {
+		for(HexButton a : RiskFrame.hexButtons) {
+			a.setEnabled(true);
+		}
+	}
+	
 	public static void increaseRoundCount() {
 		roundCount++;
 	}
@@ -79,6 +92,10 @@ public class RiskGameSys {
 		}
 		
 		return null;
+	}
+	
+	public static void btnNuller(HexButton hex) {
+		hex = null;
 	}
 	
 	public static void attackFunc(HexButton attackSide, HexButton defendSide, int numOfUnit) {

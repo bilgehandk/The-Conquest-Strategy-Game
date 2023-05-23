@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 public class RiskFrame extends JFrame {
-	ArrayList<HexButton> hexButtons= new ArrayList<>();
+	static ArrayList<HexButton> hexButtons= new ArrayList<>();
 	
 	SoldierAddFrame soldierAddFrame;
 	StartPanel startPanel = new StartPanel();
@@ -85,37 +85,62 @@ public class RiskFrame extends JFrame {
 						if(player1.isTurn())
 						{
 							if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 1) {
-								soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
-								btnNewButton.setOwnership(1);	
+								if(searchClicked() == null) {
+									btnNewButton.isClicked = true;
+								}else {
+									HexButton found = searchClicked();
+									if(found.equals(btnNewButton)) {
+										soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
+										soldierAddFrame.setVisible(true);
+										found.isClicked = false;
+										player1.setTurn(false);
+										player2.setTurn(true);
+									}
+								}
+								//soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
+								//btnNewButton.setOwnership(1);	
 							}
-							player1.setTurn(false);
-							player2.setTurn(true);
+							//player1.setTurn(false);
+							//player2.setTurn(true);
 							
 						}else {
 							if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 2) {
-							soldierAddFrame = new SoldierAddFrame(btnNewButton, player2);
-							btnNewButton.setOwnership(2);
+								if(searchClicked() == null) {
+									btnNewButton.isClicked = true;
+								}else {
+									HexButton found = searchClicked();
+									if(found.equals(btnNewButton)) {
+										soldierAddFrame = new SoldierAddFrame(btnNewButton, player2);
+										soldierAddFrame.setVisible(true);
+										found.isClicked = false;
+										player1.setTurn(true);
+										player2.setTurn(false);
+									}
+								}
+							//soldierAddFrame = new SoldierAddFrame(btnNewButton, player2);
+							//btnNewButton.setOwnership(2);
 							}
-							player1.setTurn(true);
-							player2.setTurn(false);
+							//player1.setTurn(true);
+							//player2.setTurn(false);
 							
 						}
-						soldierAddFrame.setVisible(true);
+//						soldierAddFrame.setVisible(true);
 						
 						
 						//btnNewButton.addDefaultSoldier();
 						//System.out.println(btnNewButton);
 						
 						//btnNewButton.setCharacter(btnNewButton.getSoldierPower() + "");	
-						if(searchClicked() == null) {
-							btnNewButton.isClicked = true;
-						}else {
-							HexButton found = searchClicked();
-							attackPanel = new AttackPanel(found, btnNewButton);
-							found.isClicked = false;
-							btnNewButton.isClicked = false;
-							attackPanel.setVisible(true);
-						}
+//						if(searchClicked() == null) {
+//							btnNewButton.isClicked = true;
+//							
+//						}else {
+//							HexButton found = searchClicked();
+//							attackPanel = new AttackPanel(found, btnNewButton);
+//							found.isClicked = false;
+//							btnNewButton.isClicked = false;
+//							attackPanel.setVisible(true);
+//						}
 //						
 //						if(player1.isTurn()) {
 //							if(btnNewButton.getOwnership() == 2) {

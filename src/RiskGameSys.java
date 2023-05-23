@@ -72,7 +72,7 @@ public class RiskGameSys {
 	}
 	
 	
-	public static Color setFirstColor(String color)
+	public static Color setColor(String color)
 	{
 		switch (color) {
 		case "Red":
@@ -118,23 +118,42 @@ public class RiskGameSys {
 		player1.setTurn(!player1.getTurn());
 		player2.setTurn(!player2.getTurn());
 	}
-	public static void changeColor(String color, HexButton btn)
+	
+	public static void setFirstColor(Player player1, Player player2)
 	{
+		HexButton btn;
+		btn = RiskFrame.hexButtons.get(0);
+		btn.owner = 1;
 		
-		for (int i = 0; i < Areas.size(); i++) {
-			btn = Areas.get(i);
+		btn.setBackground(setColor(player1.getColor()));
+		
+		
+		btn = RiskFrame.hexButtons.get(39);
+		btn.owner = 2;
+		
+		btn.setBackground(setColor(player2.getColor()));
+		
+	}
+	
+	public static void changeColor()
+	{
+		player1 = StartPanel.player1;
+		player2 = StartPanel.player2;
+		HexButton btn;
+		for (int i = 0; i < RiskFrame.hexButtons.size(); i++) {
+			btn = RiskFrame.hexButtons.get(i);
 			if(btn.owner == 1)
 			{
-				btn.setBackground(Color.RED);
+				btn.setBackground(setColor(player1.getColor()));
 			}
 			else if(btn.owner == 2)
 			{
-				btn.setBackground(Color.GREEN);
+				btn.setBackground(setColor(player2.getColor()));
 			}
 			else {
-				btn.setBackground(Color.CYAN);
+				btn.setBackground(Color.GRAY);
 			}
-			Areas.add(i, btn);
+			RiskFrame.hexButtons.add(i, btn);
 		}
 	}
 	

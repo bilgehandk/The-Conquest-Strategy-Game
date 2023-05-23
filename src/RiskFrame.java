@@ -82,6 +82,7 @@ public class RiskFrame extends JFrame {
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
+						
 						if(player1.isTurn())
 						{
 							if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 1) {
@@ -130,6 +131,8 @@ public class RiskFrame extends JFrame {
 							//player2.setTurn(false);
 							
 						}
+						
+						RiskGameSys.changeColor();
 //						soldierAddFrame.setVisible(true);
 						
 						

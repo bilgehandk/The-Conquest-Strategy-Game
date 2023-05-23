@@ -112,7 +112,7 @@ public class RiskFrame extends JFrame {
 								attackPanel = new AttackPanel(found, btnNewButton);
 								attackPanel.setVisible(true);
 								player1.setTurn(false);
-								player1.setTurn(true);
+								player2.setTurn(true);
 							}
 						}else {
 							if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 2) {
@@ -140,7 +140,7 @@ public class RiskFrame extends JFrame {
 								attackPanel = new AttackPanel(found, btnNewButton);
 								attackPanel.setVisible(true);
 								player1.setTurn(true);
-								player1.setTurn(false);
+								player2.setTurn(false);
 							}
 							//player1.setTurn(true);
 							//player2.setTurn(false);

@@ -81,34 +81,36 @@ public class RiskGameSys {
 		return null;
 	}
 	
-	public static Player whoIsTurn() {
-		if(player1.isTurn())
-			return player1;
-		else
-			return player2;
+	public static void attackFunc(HexButton attackSide, HexButton defendSide) {
+		
+		if(attackSide.getSoldierPower() > defendSide.getSoldierPower()) {
+			
+			changeColor(attackSide.getColor(), defendSide);
+			
+		}
 	}
 	
 	public static void changeTurn() {
 		player1.setTurn(!player1.getTurn());
 		player2.setTurn(!player2.getTurn());
 	}
-	public void changeColor(String color)
+	public static void changeColor(String color, HexButton btn)
 	{
-		HexButton area;
+		
 		for (int i = 0; i < Areas.size(); i++) {
-			area = Areas.get(i);
-			if(area.owner == 1)
+			btn = Areas.get(i);
+			if(btn.owner == 1)
 			{
-				area.setBackground(Color.RED);
+				btn.setBackground(Color.RED);
 			}
-			else if(area.owner == 2)
+			else if(btn.owner == 2)
 			{
-				area.setBackground(Color.GREEN);
+				btn.setBackground(Color.GREEN);
 			}
 			else {
-				area.setBackground(Color.CYAN);
+				btn.setBackground(Color.CYAN);
 			}
-			Areas.add(i, area);
+			Areas.add(i, btn);
 		}
 	}
 	

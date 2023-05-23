@@ -71,10 +71,20 @@ public class RiskFrame extends JFrame {
 					public void actionPerformed(ActionEvent e) {
 						
 						
-						soldierAddFrame = player1.isTurn() ? new SoldierAddFrame(btnNewButton,player1) : new SoldierAddFrame(btnNewButton,player2);
+						
+						if(player1.isTurn())
+						{
+							soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
+							player1.setTurn(false);
+							player2.setTurn(true);
+						}else {
+							soldierAddFrame = new SoldierAddFrame(btnNewButton, player2);
+							player1.setTurn(true);
+							player2.setTurn(false);
+						}
 						soldierAddFrame.setVisible(true);
 						
-						player2.setTurn(true);
+						
 						
 						//btnNewButton.addDefaultSoldier();
 						//System.out.println(btnNewButton);

@@ -15,6 +15,8 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JToggleButton;
 import javax.swing.JCheckBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AttackPanel extends JFrame {
 
@@ -25,25 +27,13 @@ public class AttackPanel extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AttackPanel frame = new AttackPanel();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
 	
 	
-	public AttackPanel() {
+	public AttackPanel(HexButton attackSide, HexButton defendSide) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 601, 341);
 		contentPane = new JPanel();
@@ -58,64 +48,30 @@ public class AttackPanel extends JFrame {
 		lblNewLabel.setBounds(198, 20, 190, 27);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("How many soldier will you use?");
+		JLabel lblNewLabel_1 = new JLabel("How many soldier power will you use?");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_1.setBounds(32, 149, 216, 33);
+		lblNewLabel_1.setBounds(31, 85, 250, 33);
 		contentPane.add(lblNewLabel_1);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		textArea.setBounds(355, 154, 159, 27);
-		contentPane.add(textArea);
-		
-		JLabel lblNewLabel_2 = new JLabel("Which soldier type will you use?");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2.setBounds(32, 68, 235, 20);
-		contentPane.add(lblNewLabel_2);
+		JTextArea txtSoldier = new JTextArea();
+		txtSoldier.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtSoldier.setBounds(365, 92, 159, 27);
+		contentPane.add(txtSoldier);
 		
 		JButton btnAttackButton = new JButton("Attack!!");
+		btnAttackButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnAttackButton.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnAttackButton.setBounds(69, 240, 134, 40);
+		btnAttackButton.setBounds(102, 220, 134, 40);
 		contentPane.add(btnAttackButton);
-		
-		JRadioButton rdbtnJackmanButton = new JRadioButton("Jackman");
-		buttonGroup.add(rdbtnJackmanButton);
-		rdbtnJackmanButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		rdbtnJackmanButton.setBounds(355, 70, 134, 21);
-		contentPane.add(rdbtnJackmanButton);
-		
-		JRadioButton rdbtnSpearRadioButton = new JRadioButton("Spear Solider");
-		buttonGroup.add(rdbtnSpearRadioButton);
-		rdbtnSpearRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		rdbtnSpearRadioButton.setBounds(355, 114, 134, 21);
-		contentPane.add(rdbtnSpearRadioButton);
-		
-		JRadioButton rdbtnArcherRadioButton = new JRadioButton("Archer");
-		buttonGroup.add(rdbtnArcherRadioButton);
-		rdbtnArcherRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		rdbtnArcherRadioButton.setBounds(355, 93, 134, 21);
-		contentPane.add(rdbtnArcherRadioButton);
 		
 		JButton btnSkipButton = new JButton("Skip Round");
 		btnSkipButton.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnSkipButton.setBounds(355, 240, 169, 40);
+		btnSkipButton.setBounds(352, 220, 169, 40);
 		contentPane.add(btnSkipButton);
-		
-		JLabel lblNewLabel_3 = new JLabel("Do you want to add diffrent type of soldier ?");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_3.setBounds(32, 196, 298, 20);
-		contentPane.add(lblNewLabel_3);
-		
-		JCheckBox chckbxYesCheckBox = new JCheckBox("Yes");
-		buttonGroup_1.add(chckbxYesCheckBox);
-		chckbxYesCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxYesCheckBox.setBounds(355, 198, 93, 21);
-		contentPane.add(chckbxYesCheckBox);
-		
-		JCheckBox chckbxNoCheckBox = new JCheckBox("No");
-		buttonGroup_1.add(chckbxNoCheckBox);
-		chckbxNoCheckBox.setBounds(461, 198, 93, 21);
-		contentPane.add(chckbxNoCheckBox);
 		
 	       
 	}

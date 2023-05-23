@@ -39,6 +39,7 @@ public class HexButton extends JButton implements Area{
     	}
     }
     
+    
     public int getSoldierPower() {
     	int totalPower = 0;
     	for(Soldier a : areaSoldier) {
@@ -219,5 +220,7 @@ public class HexButton extends JButton implements Area{
 	public void setOwnership(int owner) {
 		this.owner = owner;
 	}
-    
+    public String getColor() {
+    	return Color.BLACK + "";
+    }
 }

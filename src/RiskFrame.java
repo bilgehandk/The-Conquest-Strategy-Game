@@ -97,6 +97,7 @@ public class RiskFrame extends JFrame {
 										found = null;
 										btnNewButton.setOwnership(1);
 										
+										RiskGameSys.changeColor(player1, btnNewButton);
 										player1.setTurn(false);
 										player2.setTurn(true);
 									}else if(found.getOwnership() == 2){
@@ -125,6 +126,8 @@ public class RiskFrame extends JFrame {
 										soldierAddFrame.setVisible(true);
 										found.isClicked = false;
 										btnNewButton.setOwnership(2);
+										
+										RiskGameSys.changeColor(player2, btnNewButton);
 										player1.setTurn(true);
 										player2.setTurn(false);
 									}else if(found.getOwnership() == 1) {
@@ -147,7 +150,11 @@ public class RiskFrame extends JFrame {
 							
 						}
 						
+<<<<<<< Updated upstream
 //						RiskGameSys.changeColor();
+=======
+						
+>>>>>>> Stashed changes
 //						soldierAddFrame.setVisible(true);
 						
 						

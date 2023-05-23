@@ -63,6 +63,7 @@ public class AttackPanel extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				RiskGameSys.attackFunc(attackSide, defendSide, Integer.parseInt(txtSoldier.getText()));
 				dispose();
+				
 			}
 		});
 		btnAttackButton.setFont(new Font("Tahoma", Font.BOLD, 20));

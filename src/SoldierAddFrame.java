@@ -83,7 +83,9 @@ public class SoldierAddFrame extends JFrame {
 					RiskGameSys.buySoldier(player, price);
 					System.out.println(player.getColor());
 					
+					
 					dispose();
+					
 				}
 			}
 		});

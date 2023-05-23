@@ -135,26 +135,24 @@ public class RiskGameSys {
 		
 	}
 	
-	public static void changeColor()
+	public static void changeColor(Player player, HexButton btn)
 	{
-		player1 = StartPanel.player1;
-		player2 = StartPanel.player2;
-		HexButton btn;
-		for (int i = 0; i < RiskFrame.hexButtons.size(); i++) {
-			btn = RiskFrame.hexButtons.get(i);
+		
+		
+			int i = btn.getBtnIndex();
 			if(btn.owner == 1)
 			{
-				btn.setBackground(setColor(player1.getColor()));
+				btn.setBackground(setColor(player.getColor()));
 			}
 			else if(btn.owner == 2)
 			{
-				btn.setBackground(setColor(player2.getColor()));
+				btn.setBackground(setColor(player.getColor()));
 			}
 			else {
 				btn.setBackground(Color.GRAY);
 			}
 			RiskFrame.hexButtons.add(i, btn);
-		}
+		
 	}
 	
 //	public void IncreaseMoney()

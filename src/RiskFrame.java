@@ -149,35 +149,7 @@ public class RiskFrame extends JFrame {
 							//player2.setTurn(false);
 							
 						}
-						
-<<<<<<< Updated upstream
-//						RiskGameSys.changeColor();
-=======
-						
->>>>>>> Stashed changes
-//						soldierAddFrame.setVisible(true);
-						
-						
-						//btnNewButton.addDefaultSoldier();
-						//System.out.println(btnNewButton);
-						
-						//btnNewButton.setCharacter(btnNewButton.getSoldierPower() + "");	
-//						if(searchClicked() == null) {
-//							btnNewButton.isClicked = true;
-//							
-//						}else {
-//							HexButton found = searchClicked();
-//							attackPanel = new AttackPanel(found, btnNewButton);
-//							found.isClicked = false;
-//							btnNewButton.isClicked = false;
-//							attackPanel.setVisible(true);
-//						}
-//						
-//						if(player1.isTurn()) {
-//							if(btnNewButton.getOwnership() == 2) {
-//								attackPanel = new AttackPanel(found, btnNewButton);
-//							}
-//						}
+
 					}
 				});
 			}

@@ -96,6 +96,7 @@ public class RiskFrame extends JFrame {
 										found.isClicked = false;
 										
 										btnNewButton.setOwnership(1);
+										//deneme
 										
 										RiskGameSys.changeColor(player1, btnNewButton);
 										player1.setTurn(false);

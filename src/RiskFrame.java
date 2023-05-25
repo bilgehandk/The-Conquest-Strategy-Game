@@ -21,8 +21,6 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
 public class RiskFrame extends JFrame {
-
-	
 	SoldierAddFrame soldierAddFrame;
 	StartPanel startPanel = new StartPanel();
 	AttackPanel attackPanel;
@@ -91,8 +89,7 @@ public class RiskFrame extends JFrame {
 										found.isClicked = false;
 										btnNewButton.setOwnership(1);
 										RiskGameSys.changeColor(player1, btnNewButton);
-										player1.setTurn(false);
-										player2.setTurn(true);
+										RiskGameSys.playerTurner();
 									}else if(found.getOwnership() == 2){
 										attackPanel = new AttackPanel(btnNewButton, found);
 										attackPanel.setVisible(true);
@@ -108,8 +105,7 @@ public class RiskFrame extends JFrame {
 								found.isClicked = false;
 								attackPanel = new AttackPanel(found, btnNewButton);
 								attackPanel.setVisible(true);
-								player1.setTurn(false);
-								player2.setTurn(true);
+								RiskGameSys.playerTurner();
 							}
 						}else {
 							if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 2) {
@@ -124,8 +120,7 @@ public class RiskFrame extends JFrame {
 										btnNewButton.setOwnership(2);
 										
 										RiskGameSys.changeColor(player2, btnNewButton);
-										player1.setTurn(true);
-										player2.setTurn(false);
+										RiskGameSys.playerTurner();
 									}else if(found.getOwnership() == 1) {
 										attackPanel = new AttackPanel(btnNewButton, found);
 										attackPanel.setVisible(true);
@@ -141,32 +136,20 @@ public class RiskFrame extends JFrame {
 								attackPanel = new AttackPanel(found, btnNewButton);
 								attackPanel.setVisible(true);
 								found.isClicked = false;
-								player1.setTurn(true);
-								player2.setTurn(false);
+								RiskGameSys.playerTurner();
 							}
 							//player1.setTurn(true);
-							//player2.setTurn(false);
-							
+							//player2.setTurn(false);	
 						}
-
 					}
 				});
 			}
 			//HexButton btnNewButton = i == 0 || i == 39 ? new HexButton("a",i) : new HexButton("b", i);
-			
-				
 			RiskGameSys.Areas.get(0).setBounds(17, 6, 75, 75);
 			contentPane.add(RiskGameSys.Areas.get(0));
-		}
-		
-		
-		
-		
-		
+		}	
 		
 		int x1=17,y1=6,k=0;
-		
-		
 		for(int j=1;j<=4;j++) {
 		
 		boolean yc=true;
@@ -188,21 +171,12 @@ public class RiskFrame extends JFrame {
 				y1-=28;
 				yc=true;
 			}
-			
-			
 			k++;
-			
-			
-			
 		}
-		
 		x1=17;
 		y1+=56;
 		
-}
-		
-	
-		
+}	
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("ROUND");

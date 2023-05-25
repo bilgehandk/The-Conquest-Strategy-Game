@@ -108,9 +108,6 @@ public class RiskGameSys {
 		return null;
 	}
 	
-	public static void btnNuller(HexButton hex) {
-		hex = null;
-	}
 	
 	public static void attackFunc(HexButton attackSide, HexButton defendSide, int numOfUnit) {
 		
@@ -126,6 +123,11 @@ public class RiskGameSys {
 			attackSide.setCharacter(attackSide.getTotalPower() + "");
 		}
 			
+	}
+	
+	public static void playerTurner() {
+		player1.setTurn(!player1.getTurn());
+		player2.setTurn(!player2.getTurn());
 	}
 	
 	public static void changeTurn() {

@@ -32,11 +32,7 @@ public class RiskFrame extends JFrame {
 	AttackPanel attackPanel;
 	JTextPane textRound;
 	
-	
-
 	private JPanel contentPane;
-	
-	 
 
 	/**
 	 * Launch the application.
@@ -60,7 +56,6 @@ public class RiskFrame extends JFrame {
 
 		setContentPane(contentPane);
 		
-		
 		for(int i=0; i<40; i++) {
 			if(i == 0) {
 				HexButton player1SpawnPoint = new HexButton(player1.getNickname(), i); 
@@ -70,7 +65,6 @@ public class RiskFrame extends JFrame {
 				RiskGameSys.Areas.add(player2SpawnPoint);
 				
 			}else {
-				
 				HexButton btnNewButton = new HexButton("-", i);
 				RiskGameSys.Areas.add(btnNewButton);
 				
@@ -206,9 +200,7 @@ public class RiskFrame extends JFrame {
 		textRound.setBounds(281, 383, 59, 38);
 		contentPane.add(textRound);
 		textRound.setText(""+RiskGameSys.getRoundCount());
-		
-		
-		
+				
 	}
 
 	public JTextPane getTextRound() {

@@ -1,6 +1,7 @@
 package Classes;
 
 public abstract class Soldier implements Attackable{
+	
 	protected int power, count;
 	protected static int price;
 	

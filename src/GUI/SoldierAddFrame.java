@@ -96,8 +96,6 @@ public class SoldierAddFrame extends JFrame {
 					rf.getTextRound().setText(""+RiskGameSys.getRoundCount());
 					System.out.println(RiskGameSys.getRoundCount());
 					
-					
-					
 					RiskGameSys.buySoldier(player, price);
 					System.out.println(player.getColor());
 					dispose();

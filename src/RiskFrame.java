@@ -87,6 +87,7 @@ public class RiskFrame extends JFrame {
 						{
 							if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 1) {
 								if(searchClicked() == null) {
+									//aaa
 									btnNewButton.isClicked = true;
 								}else {
 									HexButton found = searchClicked();

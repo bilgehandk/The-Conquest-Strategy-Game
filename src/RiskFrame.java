@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 public class RiskFrame extends JFrame {
-	static ArrayList<HexButton> hexButtons= new ArrayList<>();
+//	static ArrayList<HexButton> RiskGameSys.Areas= new ArrayList<>();
 	
 	SoldierAddFrame soldierAddFrame;
 	StartPanel startPanel = new StartPanel();
@@ -29,13 +29,7 @@ public class RiskFrame extends JFrame {
 
 	private JPanel contentPane;
 	
-	 public HexButton searchClicked() {
-	    	for(HexButton a : hexButtons) {
-	    		if(a.isClicked)
-	    			return a;
-	    	}
-	    	return null;
-	   }
+	 
 
 	/**
 	 * Launch the application.
@@ -63,15 +57,15 @@ public class RiskFrame extends JFrame {
 			
 			if(i == 0) {
 				HexButton player1SpawnPoint = new HexButton(player1.getNickname(), i); 
-				hexButtons.add(player1SpawnPoint);
+				RiskGameSys.Areas.add(player1SpawnPoint);
 			}else if(i == 39) {
 				HexButton player2SpawnPoint = new HexButton(player2.getNickname(), i);
-				hexButtons.add(player2SpawnPoint);
+				RiskGameSys.Areas.add(player2SpawnPoint);
 				
 			}else {
 				
 				HexButton btnNewButton = new HexButton("-", i);
-				hexButtons.add(btnNewButton);
+				RiskGameSys.Areas.add(btnNewButton);
 				if(i == 5) {
 					btnNewButton.addSoldier(0, 5);
 					btnNewButton.setCharacter(btnNewButton.getSoldierPower()+"");
@@ -86,11 +80,11 @@ public class RiskFrame extends JFrame {
 						if(player1.isTurn())
 						{
 							if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 1) {
-								if(searchClicked() == null) {
+								if(RiskGameSys.searchClicked() == null) {
 									//aaa
 									btnNewButton.isClicked = true;
 								}else {
-									HexButton found = searchClicked();
+									HexButton found = RiskGameSys.searchClicked();
 									if(found.equals(btnNewButton)) {
 										soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
 										soldierAddFrame.setVisible(true);
@@ -113,7 +107,7 @@ public class RiskFrame extends JFrame {
 								//soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
 								//btnNewButton.setOwnership(1);	
 							}else {
-								HexButton found = searchClicked();
+								HexButton found = RiskGameSys.searchClicked();
 								found.isClicked = false;
 								attackPanel = new AttackPanel(found, btnNewButton);
 								attackPanel.setVisible(true);
@@ -122,10 +116,10 @@ public class RiskFrame extends JFrame {
 							}
 						}else {
 							if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 2) {
-								if(searchClicked() == null) {
+								if(RiskGameSys.searchClicked() == null) {
 									btnNewButton.isClicked = true;
 								}else {
-									HexButton found = searchClicked();
+									HexButton found = RiskGameSys.searchClicked();
 									if(found.equals(btnNewButton)) {
 										soldierAddFrame = new SoldierAddFrame(btnNewButton, player2);
 										soldierAddFrame.setVisible(true);
@@ -146,7 +140,7 @@ public class RiskFrame extends JFrame {
 							//soldierAddFrame = new SoldierAddFrame(btnNewButton, player2);
 							//btnNewButton.setOwnership(2);
 							}else {
-								HexButton found = searchClicked();
+								HexButton found = RiskGameSys.searchClicked();
 								attackPanel = new AttackPanel(found, btnNewButton);
 								attackPanel.setVisible(true);
 								found.isClicked = false;
@@ -164,8 +158,8 @@ public class RiskFrame extends JFrame {
 			//HexButton btnNewButton = i == 0 || i == 39 ? new HexButton("a",i) : new HexButton("b", i);
 			
 				
-			hexButtons.get(0).setBounds(17, 6, 75, 75);
-			contentPane.add(hexButtons.get(0));
+			RiskGameSys.Areas.get(0).setBounds(17, 6, 75, 75);
+			contentPane.add(RiskGameSys.Areas.get(0));
 		}
 		
 		
@@ -184,16 +178,16 @@ public class RiskFrame extends JFrame {
 		
 			if(yc)
 			{
-				hexButtons.get(k).setBounds(x1+i, y1, 75, 75);
-				contentPane.add(hexButtons.get(k));
+				RiskGameSys.Areas.get(k).setBounds(x1+i, y1, 75, 75);
+				contentPane.add(RiskGameSys.Areas.get(k));
 				y1+=28;
 				yc=false;
 			}
 			
 			else
 			{
-				hexButtons.get(k).setBounds(x1+i, y1, 75, 75);
-				contentPane.add(hexButtons.get(k));
+				RiskGameSys.Areas.get(k).setBounds(x1+i, y1, 75, 75);
+				contentPane.add(RiskGameSys.Areas.get(k));
 				y1-=28;
 				yc=true;
 			}

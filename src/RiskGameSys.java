@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 public class RiskGameSys {
 
-	private static ArrayList<HexButton> Areas = new ArrayList<HexButton>();
+	public static ArrayList<HexButton> Areas = new ArrayList<HexButton>();
 	private static Player player1;
 	private static Player player2;
 	private static int roundCount = 1;
@@ -120,16 +120,24 @@ public class RiskGameSys {
 		player2.setTurn(!player2.getTurn());
 	}
 	
+	public static HexButton searchClicked() {
+    	for(HexButton a : RiskGameSys.Areas) {
+    		if(a.isClicked)
+    			return a;
+    	}
+    	return null;
+   }
+	
 	public static void setFirstColor(Player player1, Player player2)
 	{
 		HexButton btn;
-		btn = RiskFrame.hexButtons.get(0);
+		btn = Areas.get(0);
 		btn.owner = 1;
 		
 		btn.setBackground(setColor(player1.getColor()));
 		
 		
-		btn = RiskFrame.hexButtons.get(39);
+		btn = Areas.get(39);
 		btn.owner = 2;
 		
 		btn.setBackground(setColor(player2.getColor()));
@@ -152,7 +160,7 @@ public class RiskGameSys {
 			else {
 				btn.setBackground(Color.GRAY);
 			}
-			RiskFrame.hexButtons.add(i, btn);
+			Areas.add(i, btn);
 		
 	}
 	

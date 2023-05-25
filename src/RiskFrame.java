@@ -17,6 +17,8 @@ import java.awt.Graphics;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 public class RiskFrame extends JFrame {
 
@@ -24,6 +26,7 @@ public class RiskFrame extends JFrame {
 	SoldierAddFrame soldierAddFrame;
 	StartPanel startPanel = new StartPanel();
 	AttackPanel attackPanel;
+	JTextPane textRound;
 	
 	
 
@@ -42,7 +45,7 @@ public class RiskFrame extends JFrame {
 		player1.setGold(100);
 		player2.setGold(100);
 		player1.setTurn(true);
-		
+		RiskFrame rf = this;
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -83,7 +86,7 @@ public class RiskFrame extends JFrame {
 								}else {
 									HexButton found = RiskGameSys.searchClicked();
 									if(found.equals(btnNewButton)) {
-										soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
+										soldierAddFrame = new SoldierAddFrame(btnNewButton, player1, rf);
 										soldierAddFrame.setVisible(true);
 										found.isClicked = false;
 										btnNewButton.setOwnership(1);
@@ -115,7 +118,7 @@ public class RiskFrame extends JFrame {
 								}else {
 									HexButton found = RiskGameSys.searchClicked();
 									if(found.equals(btnNewButton)) {
-										soldierAddFrame = new SoldierAddFrame(btnNewButton, player2);
+										soldierAddFrame = new SoldierAddFrame(btnNewButton, player2, rf);
 										soldierAddFrame.setVisible(true);
 										found.isClicked = false;
 										btnNewButton.setOwnership(2);
@@ -217,12 +220,6 @@ public class RiskFrame extends JFrame {
 		contentPane.add(player2Text);
 		player2Text.setText(player2.getNickname());
 		
-		JLabel roundText = new JLabel("");
-		roundText.setHorizontalAlignment(SwingConstants.CENTER);
-		roundText.setBounds(247, 405, 121, 16);
-		contentPane.add(roundText);
-		roundText.setText(RiskGameSys.getRound() + "");
-		
 		JLabel player1Turn = new JLabel("");
 		player1Turn.setBounds(48, 405, 98, 16);
 		contentPane.add(player1Turn);
@@ -231,5 +228,16 @@ public class RiskFrame extends JFrame {
 		player2Turn.setBounds(453, 405, 98, 16);
 		contentPane.add(player2Turn);
 		
+		textRound = new JTextPane();
+		textRound.setBounds(281, 383, 59, 38);
+		contentPane.add(textRound);
+		textRound.setText(""+RiskGameSys.getRoundCount());
+		
+		
+		
+	}
+
+	public JTextPane getTextRound() {
+		return textRound;
 	}
 }

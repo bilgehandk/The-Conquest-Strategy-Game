@@ -17,6 +17,8 @@ public class SoldierAddFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField soldierAmount;
+	private JButton applyBtn;
+	
 
 	/**
 	 * Launch the application.
@@ -25,7 +27,8 @@ public class SoldierAddFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SoldierAddFrame(HexButton sent, Player player) {
+	public SoldierAddFrame(HexButton sent, Player player, JFrame jr) {
+		RiskFrame rf = (RiskFrame)jr;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -58,17 +61,14 @@ public class SoldierAddFrame extends JFrame {
 		contentPane.add(errorMsg);
 		
 		
-		JButton applyBtn = new JButton("Apply");
+		applyBtn = new JButton("Apply");
 		applyBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				int price;
 				int amount = Integer.parseInt(soldierAmount.getText());
 				int index = soldiercmbBox.getSelectedIndex();
-				int price;
-				//System.out.println(amount + soldierType);
-				sent.addSoldier(index, amount);
-				sent.setCharacter(sent.getSoldierPower()+"");
-				RiskGameSys.increaseRoundCount();
-				System.out.println(RiskGameSys.getRoundCount());
+
 				
 				if(index == 0) {
 					price = amount * Jackman.getPrice();
@@ -80,10 +80,17 @@ public class SoldierAddFrame extends JFrame {
 				if(price > player.getGold())
 					errorMsg.setText("NOT ENOUGH GOLD TO PURCHASE");
 				else {
+					//System.out.println(amount + soldierType);
+					sent.addSoldier(index, amount);
+					sent.setCharacter(sent.getSoldierPower()+"");
+					RiskGameSys.increaseRoundCount();
+					rf.getTextRound().setText(""+RiskGameSys.getRoundCount());
+					System.out.println(RiskGameSys.getRoundCount());
+					
+					
+					
 					RiskGameSys.buySoldier(player, price);
 					System.out.println(player.getColor());
-					
-					
 					dispose();
 					
 				}
@@ -110,5 +117,9 @@ public class SoldierAddFrame extends JFrame {
 		
 		playerGold.setText(player.getGold() + " Gold");
 		
+	}
+
+	public JButton getApplyBtn() {
+		return applyBtn;
 	}
 }

@@ -44,18 +44,14 @@ public class WinnerPanel extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnFinishButton = new JButton("Finish !");
+		btnFinishButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnFinishButton.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnFinishButton.setBounds(48, 196, 160, 33);
 		contentPane.add(btnFinishButton);
-		
-		JButton btnNewButton_1 = new JButton("Start New Game !");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnNewButton_1.setBounds(268, 196, 234, 33);
-		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("CONGRATULATIONS!!");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

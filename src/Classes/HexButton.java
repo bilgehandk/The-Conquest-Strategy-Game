@@ -1,3 +1,4 @@
+package Classes;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -13,15 +14,15 @@ import javax.swing.JButton;
 public class HexButton extends JButton{
 
     private static final long serialVersionUID = 8703517515706326251L;
-    Polygon bounds;
-    String character;
-    Boolean clicked;
-    int flag = 0;
-    int btnIndex;
-    int owner = 0;
-    int totalPower = 0;
+    public Polygon bounds;
+    public String character;
+    public Boolean clicked;
+    public int flag = 0;
+    public int btnIndex;
+    public int owner = 0;
+    public int totalPower = 0;
     // AREA HAS-A RELATIONSHIP
-    boolean isClicked = false;
+    public boolean isClicked = false;
     
     ArrayList<Soldier> areaSoldier = new ArrayList();
     
@@ -44,7 +45,7 @@ public class HexButton extends JButton{
     public int getSoldierPower() {
     	
     	for(Soldier a : areaSoldier) {
-    		this.totalPower += a.getCalculatedPower();
+    		this.totalPower += a.getAttackPower();
     	}
     	return totalPower;
     }

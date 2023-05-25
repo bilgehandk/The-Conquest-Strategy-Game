@@ -1,8 +1,17 @@
+package GUI;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Classes.Archer;
+import Classes.HexButton;
+import Classes.Jackman;
+import Classes.Player;
+import Classes.RiskGameSys;
+import Classes.Spearman;
+
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;

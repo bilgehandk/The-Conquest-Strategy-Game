@@ -1,5 +1,6 @@
+package Classes;
 
-public abstract class Soldier {
+public abstract class Soldier implements Attackable{
 	protected int power, count;
 	protected static int price;
 	
@@ -8,7 +9,7 @@ public abstract class Soldier {
 	}
 	
 	public abstract String makeNoise();
-	public abstract int getCalculatedPower();
+	
 
 	public int getPower() {
 		return power;

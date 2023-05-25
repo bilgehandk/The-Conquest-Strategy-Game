@@ -1,3 +1,4 @@
+package Classes;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -197,19 +198,21 @@ public class RiskGameSys {
 //		
 //	}
 	
-	public static boolean addSoldier(HexButton a, int amount, String type) {
+	public static boolean addSoldier(HexButton btn, int amount, String type) {
 		if(type.equalsIgnoreCase("Jackman")) {
-			a.addSoldier(0, amount);
+			btn.addSoldier(0, amount);
 		}else if(type.equalsIgnoreCase("Archer")) {
-			a.addSoldier(1, amount);
+			btn.addSoldier(1, amount);
 		}else if(type.equalsIgnoreCase("Spearman")){
-			a.addSoldier(2, amount);
+			btn.addSoldier(2, amount);
 		}else {
 			return false;
 		}
 		return true;
 		
 	}
+	
+	
 	
 	public static void buySoldier(Player player, int price) {
 		player.setGold(player.getGold() - price);

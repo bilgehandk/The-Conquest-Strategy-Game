@@ -1,9 +1,15 @@
+package GUI;
 import java.awt.EventQueue;
 
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Classes.HexButton;
+import Classes.Player;
+import Classes.RiskGameSys;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -53,9 +59,9 @@ public class RiskFrame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		Icon icon = new ImageIcon("./hexagon.png");
 		
-		for(int i=0; i<42; i++) {
+		
+		for(int i=0; i<40; i++) {
 			if(i == 0) {
 				HexButton player1SpawnPoint = new HexButton(player1.getNickname(), i); 
 				RiskGameSys.Areas.add(player1SpawnPoint);
@@ -67,13 +73,7 @@ public class RiskFrame extends JFrame {
 				
 				HexButton btnNewButton = new HexButton("-", i);
 				RiskGameSys.Areas.add(btnNewButton);
-				if(i == 5) {
-					btnNewButton.addSoldier(0, 5);
-					btnNewButton.setCharacter(btnNewButton.getSoldierPower()+"");
-				}else if(i == 15) {
-					btnNewButton.addSoldier(1, 5);
-					btnNewButton.setCharacter(btnNewButton.getSoldierPower()+"");
-				}
+				
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if(player1.isTurn())

@@ -26,6 +26,19 @@ public class RiskGameSys {
 //		}
 //	}
 	
+	public static void setPlayer1(String name, String color) {
+		player1 = new Player(name, color);
+	}
+	public static void setPlayer2(String name, String color) {
+		player2 = new Player(name, color);
+	}
+	
+	public static Player getPlayer1() {
+		return player1;
+	}
+	public static Player getPlayer2() {
+		return player2;
+	}
 	public static void increaseRoundCount() {
 		roundCount++;
 	}
@@ -127,6 +140,11 @@ public class RiskGameSys {
     	}
     	return null;
    }
+	
+	public static void playerConversion(Player player1, Player player2) {
+		player1.setTurn(!player1.getTurn());
+		player2.setTurn(!player2.getTurn());
+	}
 	
 	public static void setFirstColor(Player player1, Player player2)
 	{

@@ -17,8 +17,7 @@ public class StartPanel extends JFrame {
 	private JPanel contentPane;
 	private JTextField player1Nick;
 	private JTextField player2Nick;
-	public static Player player1;
-	public static Player player2;
+	
 
 	/**
 	 * Launch the application.
@@ -104,11 +103,12 @@ public class StartPanel extends JFrame {
         JButton btnStartButton = new JButton("Start Your Journey!");
         btnStartButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		player1 = new Player(player1Nick.getText(), player1cmbBox.getSelectedItem().toString());
-        		player2 = new Player(player2Nick.getText(), player2cmbBox.getSelectedItem().toString());
+        		RiskGameSys.setPlayer1(player1Nick.getText(), player1cmbBox.getSelectedItem().toString());
+        		RiskGameSys.setPlayer2(player2Nick.getText(), player2cmbBox.getSelectedItem().toString());
         		
-        		RiskFrame theGame = new RiskFrame(player1, player2);
-        		RiskGameSys.setFirstColor(player1, player2);
+        		
+        		RiskFrame theGame = new RiskFrame(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2());
+        		RiskGameSys.setFirstColor(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2());
         		
         		setVisible(false);
         		theGame.setVisible(true);

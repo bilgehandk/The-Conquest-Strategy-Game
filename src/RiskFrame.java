@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 public class RiskFrame extends JFrame {
-//	static ArrayList<HexButton> RiskGameSys.Areas= new ArrayList<>();
+
 	
 	SoldierAddFrame soldierAddFrame;
 	StartPanel startPanel = new StartPanel();
@@ -44,6 +44,7 @@ public class RiskFrame extends JFrame {
 		player1.setTurn(true);
 		
 		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 600);
 		contentPane = new JPanel();
@@ -54,7 +55,6 @@ public class RiskFrame extends JFrame {
 		Icon icon = new ImageIcon("./hexagon.png");
 		
 		for(int i=0; i<42; i++) {
-			
 			if(i == 0) {
 				HexButton player1SpawnPoint = new HexButton(player1.getNickname(), i); 
 				RiskGameSys.Areas.add(player1SpawnPoint);
@@ -75,13 +75,10 @@ public class RiskFrame extends JFrame {
 				}
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
-						
 						if(player1.isTurn())
 						{
 							if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 1) {
 								if(RiskGameSys.searchClicked() == null) {
-									//aaa
 									btnNewButton.isClicked = true;
 								}else {
 									HexButton found = RiskGameSys.searchClicked();
@@ -89,10 +86,7 @@ public class RiskFrame extends JFrame {
 										soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
 										soldierAddFrame.setVisible(true);
 										found.isClicked = false;
-										
 										btnNewButton.setOwnership(1);
-										//deneme
-										
 										RiskGameSys.changeColor(player1, btnNewButton);
 										player1.setTurn(false);
 										player2.setTurn(true);

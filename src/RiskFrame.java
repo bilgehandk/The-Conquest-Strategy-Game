@@ -96,6 +96,7 @@ public class RiskFrame extends JFrame {
 										found.isClicked = false;
 										found = null;
 										btnNewButton.setOwnership(1);
+										//deneme
 										
 										player1.setTurn(false);
 										player2.setTurn(true);

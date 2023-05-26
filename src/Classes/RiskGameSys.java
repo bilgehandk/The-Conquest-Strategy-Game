@@ -8,7 +8,7 @@ public class RiskGameSys {
 	public static ArrayList<HexButton> Areas = new ArrayList<HexButton>();
 	private static Player player1;
 	private static Player player2;
-	private static int roundCount = 1;
+	private static int roundCount = 0;
 	private static int roundNum = 1;
 	private static final int ROUND = 50;
 	public static boolean finishScreen;
@@ -42,8 +42,20 @@ public class RiskGameSys {
 	public static Player getPlayer2() {
 		return player2;
 	}
+	
+	public static void increaseGold()
+	{
+		int gold = player1.getGold();
+		player1.setGold(gold + 20);
+		gold = player2.getGold();
+		player2.setGold(gold + 20);
+	}
+	
 	public static void increaseRoundCount() {
-		roundCount++;
+		
+		++roundCount;
+		if(roundCount > 2)
+		increaseGold();
 	}
 	public static int getRoundCount() {
 		return roundCount;
@@ -154,7 +166,7 @@ public class RiskGameSys {
 	public static Player checkWinner()
 	{
 		int p1Count = 0, p2Count = 0;
-		if(roundCount == 3)
+		if(roundCount == 10)
 		{
 			for (int i = 0; i < Areas.size(); i++) {
 				if (Areas.get(i).getOwnership() == 1) {

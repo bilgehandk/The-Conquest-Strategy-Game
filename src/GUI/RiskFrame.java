@@ -29,6 +29,7 @@ import javax.swing.JTextPane;
 public class RiskFrame extends JFrame {
 	SoldierAddFrame soldierAddFrame;
 	StartPanel startPanel = new StartPanel();
+	WinnerPanel winPanel;
 	AttackPanel attackPanel;
 	JTextPane textRound;
 	
@@ -70,70 +71,89 @@ public class RiskFrame extends JFrame {
 				
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(player1.isTurn())
+						
+						Player p = RiskGameSys.checkWinner();
+						if(RiskGameSys.finishScreen==true)
 						{
-							if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 1) {
-								if(RiskGameSys.searchClicked() == null) {
-									btnNewButton.isClicked = true;
+							
+							
+							if(p.equals(player1))
+							{
+								RiskGameSys.win = true;
+							}
+							else {
+								RiskGameSys.win = false;
+							}
+							winPanel = new WinnerPanel(rf);
+							winPanel.setVisible(true);
+						}
+						else {
+						
+							if(player1.isTurn())
+							{
+								if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 1) {
+									if(RiskGameSys.searchClicked() == null) {
+										btnNewButton.isClicked = true;
+									}else {
+										HexButton found = RiskGameSys.searchClicked();
+										if(found.equals(btnNewButton)) {
+											soldierAddFrame = new SoldierAddFrame(btnNewButton, player1, rf);
+											soldierAddFrame.setVisible(true);
+											found.isClicked = false;
+											btnNewButton.setOwnership(1);
+											RiskGameSys.changeColor(player1, btnNewButton);
+											RiskGameSys.playerTurner();
+										}else if(found.getOwnership() == 2){
+											attackPanel = new AttackPanel(btnNewButton, found);
+											attackPanel.setVisible(true);
+										}else {
+											found.isClicked = false;
+											btnNewButton.isClicked = false;
+										}
+									}
+									//soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
+									//btnNewButton.setOwnership(1);	
 								}else {
 									HexButton found = RiskGameSys.searchClicked();
-									if(found.equals(btnNewButton)) {
-										soldierAddFrame = new SoldierAddFrame(btnNewButton, player1, rf);
-										soldierAddFrame.setVisible(true);
-										found.isClicked = false;
-										btnNewButton.setOwnership(1);
-										RiskGameSys.changeColor(player1, btnNewButton);
-										RiskGameSys.playerTurner();
-									}else if(found.getOwnership() == 2){
-										attackPanel = new AttackPanel(btnNewButton, found);
-										attackPanel.setVisible(true);
-									}else {
-										found.isClicked = false;
-										btnNewButton.isClicked = false;
-									}
+									found.isClicked = false;
+									attackPanel = new AttackPanel(found, btnNewButton);
+									attackPanel.setVisible(true);
+									RiskGameSys.playerTurner();
 								}
-								//soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
-								//btnNewButton.setOwnership(1);	
 							}else {
-								HexButton found = RiskGameSys.searchClicked();
-								found.isClicked = false;
-								attackPanel = new AttackPanel(found, btnNewButton);
-								attackPanel.setVisible(true);
-								RiskGameSys.playerTurner();
-							}
-						}else {
-							if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 2) {
-								if(RiskGameSys.searchClicked() == null) {
-									btnNewButton.isClicked = true;
+								if(btnNewButton.getOwnership() == 0 || btnNewButton.getOwnership() == 2) {
+									if(RiskGameSys.searchClicked() == null) {
+										btnNewButton.isClicked = true;
+									}else {
+										HexButton found = RiskGameSys.searchClicked();
+										if(found.equals(btnNewButton)) {
+											soldierAddFrame = new SoldierAddFrame(btnNewButton, player2, rf);
+											soldierAddFrame.setVisible(true);
+											found.isClicked = false;
+											btnNewButton.setOwnership(2);
+											
+											RiskGameSys.changeColor(player2, btnNewButton);
+											RiskGameSys.playerTurner();
+										}else if(found.getOwnership() == 1) {
+											attackPanel = new AttackPanel(btnNewButton, found);
+											attackPanel.setVisible(true);
+										}else {
+											found.isClicked = false;
+											btnNewButton.isClicked = false;
+										}
+									}
+								//soldierAddFrame = new SoldierAddFrame(btnNewButton, player2);
+								//btnNewButton.setOwnership(2);
 								}else {
 									HexButton found = RiskGameSys.searchClicked();
-									if(found.equals(btnNewButton)) {
-										soldierAddFrame = new SoldierAddFrame(btnNewButton, player2, rf);
-										soldierAddFrame.setVisible(true);
-										found.isClicked = false;
-										btnNewButton.setOwnership(2);
-										
-										RiskGameSys.changeColor(player2, btnNewButton);
-										RiskGameSys.playerTurner();
-									}else if(found.getOwnership() == 1) {
-										attackPanel = new AttackPanel(btnNewButton, found);
-										attackPanel.setVisible(true);
-									}else {
-										found.isClicked = false;
-										btnNewButton.isClicked = false;
-									}
+									attackPanel = new AttackPanel(found, btnNewButton);
+									attackPanel.setVisible(true);
+									found.isClicked = false;
+									RiskGameSys.playerTurner();
 								}
-							//soldierAddFrame = new SoldierAddFrame(btnNewButton, player2);
-							//btnNewButton.setOwnership(2);
-							}else {
-								HexButton found = RiskGameSys.searchClicked();
-								attackPanel = new AttackPanel(found, btnNewButton);
-								attackPanel.setVisible(true);
-								found.isClicked = false;
-								RiskGameSys.playerTurner();
+								//player1.setTurn(true);
+								//player2.setTurn(false);	
 							}
-							//player1.setTurn(true);
-							//player2.setTurn(false);	
 						}
 					}
 				});

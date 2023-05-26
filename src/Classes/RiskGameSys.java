@@ -11,6 +11,8 @@ public class RiskGameSys {
 	private static int roundCount = 1;
 	private static int roundNum = 1;
 	private static final int ROUND = 50;
+	public static boolean finishScreen;
+	public static boolean win;
 	
 	
 	
@@ -147,6 +149,41 @@ public class RiskGameSys {
 	public static void playerConversion(Player player1, Player player2) {
 		player1.setTurn(!player1.getTurn());
 		player2.setTurn(!player2.getTurn());
+	}
+	
+	public static Player checkWinner()
+	{
+		int p1Count = 0, p2Count = 0;
+		if(roundCount == 3)
+		{
+			for (int i = 0; i < Areas.size(); i++) {
+				if (Areas.get(i).getOwnership() == 1) {
+					p1Count++;
+				}
+				else if(Areas.get(i).getOwnership() == 2)
+				{
+					p2Count++;
+				}
+				
+			}
+			finishScreen = true;
+			
+			if(p1Count > p2Count)
+			{
+				return player1;
+			}
+			else {
+				return player2;
+			}
+		}
+		
+		finishScreen = false;
+		
+		
+		return null;
+		
+		
+		
 	}
 	
 	public static void setFirstColor(Player player1, Player player2)

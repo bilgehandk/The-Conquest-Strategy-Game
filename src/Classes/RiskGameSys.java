@@ -3,6 +3,8 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.swing.JFrame;
+
 public class RiskGameSys {
 
 	public static ArrayList<HexButton> Areas = new ArrayList<HexButton>();
@@ -28,6 +30,20 @@ public class RiskGameSys {
 //			a.setEnabled(true);
 //		}
 //	}
+	
+	
+	
+	public static void DeleteButton(HexButton sent)
+	{
+		int index = sent.btnIndex;
+		sent.setOwnership(0);
+		sent.setTotalPower(0);
+		Player ex = null;
+		changeColor(ex, sent);
+		Areas.add(index, sent);
+		
+	}
+	
 	
 	public static void setPlayer1(String name, String color) {
 		player1 = new Player(name, color);
@@ -57,6 +73,10 @@ public class RiskGameSys {
 		if(roundCount > 2)
 		increaseGold();
 	}
+	
+	
+	
+	
 	public static int getRoundCount() {
 		return roundCount;
 	}

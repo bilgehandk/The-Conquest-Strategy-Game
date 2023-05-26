@@ -124,6 +124,17 @@ public class SoldierAddFrame extends JFrame {
 		
 		playerGold.setText(player.getGold() + " Gold");
 		
+		JButton dltButton = new JButton("Delete");
+		dltButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RiskGameSys.DeleteButton(sent);
+				sent.setCharacter("-");
+				dispose();
+			}
+		});
+		dltButton.setBounds(21, 224, 119, 26);
+		contentPane.add(dltButton);
+		
 	}
 
 	public JButton getApplyBtn() {

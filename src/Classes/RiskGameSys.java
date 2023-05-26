@@ -12,7 +12,7 @@ public class RiskGameSys {
 	private static Player player2;
 	private static int roundCount = 0;
 	private static int roundNum = 1;
-	private static final int ROUND = 50;
+	private static final int ROUND = 10;
 	public static boolean finishScreen;
 	public static boolean win;
 	

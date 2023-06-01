@@ -13,14 +13,19 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 
-public class StartPanel extends JFrame {
+public class StartPanel extends JFrame implements KeyListener{
 
 	private JPanel contentPane;
 	private JTextField player1Nick;
 	private JTextField player2Nick;
+	JComboBox player1cmbBox;
+	JComboBox player2cmbBox;
 	
 
 	/**
@@ -66,7 +71,7 @@ public class StartPanel extends JFrame {
 		lblColorLabel.setBounds(26, 165, 245, 27);
 		contentPane.add(lblColorLabel);
 		
-		JComboBox player2cmbBox = new JComboBox();
+		player2cmbBox = new JComboBox();
 		player2cmbBox.setModel(new DefaultComboBoxModel(new String[] {"Blue", "Yellow", "Red", "Purple", "Green", "Orange"}));
 		player2cmbBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		player2cmbBox.setBounds(523, 169, 134, 21);
@@ -79,7 +84,7 @@ public class StartPanel extends JFrame {
         player2cmbBox.addItem("Green");
         player2cmbBox.addItem("Orange");
         
-        JComboBox player1cmbBox = new JComboBox();
+        player1cmbBox = new JComboBox();
         player1cmbBox.setModel(new DefaultComboBoxModel(new String[] {"Blue", "Yellow", "Red", "Purple", "Green", "Orange"}));
         player1cmbBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
         player1cmbBox.setBounds(345, 169, 134, 21);
@@ -91,9 +96,33 @@ public class StartPanel extends JFrame {
         player1Nick.setColumns(10);
         
         player2Nick = new JTextField();
+        player2Nick.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				int key = e.getKeyCode();
+				
+				if(key == KeyEvent.VK_ENTER) {
+					RiskGameSys.setPlayer1(player1Nick.getText(), player1cmbBox.getSelectedItem().toString());
+					RiskGameSys.setPlayer2(player2Nick.getText(), player2cmbBox.getSelectedItem().toString());
+					
+					
+					RiskFrame theGame = new RiskFrame(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2());
+					RiskGameSys.setFirstColor(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2());
+					
+					setVisible(false);
+					theGame.setVisible(true);
+				}
+				
+				// TODO Auto-generated method stub
+				
+			}
+			
+        });
         player2Nick.setBounds(527, 100, 130, 26);
         contentPane.add(player2Nick);
         player2Nick.setColumns(10);
+        
         
         JLabel lblNewLabel_1 = new JLabel("Player 1");
         lblNewLabel_1.setBounds(345, 67, 134, 16);
@@ -118,11 +147,46 @@ public class StartPanel extends JFrame {
         		theGame.setVisible(true);
         	}
         });
+        
+        
         btnStartButton.setFont(new Font("Tahoma", Font.BOLD, 20));
         btnStartButton.setBounds(225, 256, 300, 41);
         contentPane.add(btnStartButton);
         
       
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		
+		int key = e.getKeyCode();
+		
+		if(key == KeyEvent.VK_ENTER) {
+			RiskGameSys.setPlayer1(player1Nick.getText(), player1cmbBox.getSelectedItem().toString());
+			RiskGameSys.setPlayer2(player2Nick.getText(), player2cmbBox.getSelectedItem().toString());
+			
+			
+			RiskFrame theGame = new RiskFrame(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2());
+			RiskGameSys.setFirstColor(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2());
+			
+			setVisible(false);
+			theGame.setVisible(true);
+		}
+		
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 }

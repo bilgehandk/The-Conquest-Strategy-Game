@@ -151,6 +151,7 @@ public class RiskGameSys {
 			attackSide.setCharacter(attackSide.getTotalPower() + "");
 			defendSide.setTotalPower(0);
 			defendSide.setCharacter(defendSide.getTotalPower() + "");
+			changeAttackColor(attackSide, defendSide);
 		}else {
 			defendSide.setTotalPower(defendSide.getTotalPower() - numOfUnit);
 			defendSide.setCharacter(defendSide.getTotalPower() + "");
@@ -171,8 +172,8 @@ public class RiskGameSys {
 	}
 	
 	public static HexButton searchClicked() {
-    	for(HexButton a : RiskGameSys.Areas) {
-    		if(a.isClicked)
+    	for(HexButton a : Areas) {
+    		if(a.isClicked == true)
     			return a;
     	}
     	return null;
@@ -234,11 +235,34 @@ public class RiskGameSys {
 		
 	}
 	
+	
+	public static void changeAttackColor(HexButton btn1, HexButton btn2)
+	{
+		
+		
+		
+			int i = btn2.btnIndex;
+			if(btn2.owner == 1)
+			{
+				btn2.setBackground(setColor(btn1.getColor()));
+			}
+			else if(btn1.owner == 2)
+			{
+				btn2.setBackground(setColor(btn1.getColor()));
+			}
+			else {
+				btn2.setBackground(Color.GRAY);
+			}
+			Areas.add(i, btn2);
+		
+	}
+	
 	public static void changeColor(Player player, HexButton btn)
 	{
 		
 		
-			int i = btn.getBtnIndex();
+		
+			int i = btn.btnIndex;
 			if(btn.owner == 1)
 			{
 				btn.setBackground(setColor(player.getColor()));

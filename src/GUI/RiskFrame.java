@@ -146,6 +146,7 @@ public class RiskFrame extends JFrame {
 								//btnNewButton.setOwnership(2);
 								}else {
 									HexButton found = RiskGameSys.searchClicked();
+									System.out.println(found.owner);
 									attackPanel = new AttackPanel(found, btnNewButton);
 									attackPanel.setVisible(true);
 									found.isClicked = false;

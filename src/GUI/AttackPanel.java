@@ -67,6 +67,7 @@ public class AttackPanel extends JFrame {
 		btnAttackButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RiskGameSys.attackFunc(attackSide, defendSide, Integer.parseInt(txtSoldier.getText()));
+				
 				dispose();
 				
 			}

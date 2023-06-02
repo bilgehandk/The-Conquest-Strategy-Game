@@ -89,7 +89,7 @@ public class SoldierAddFrame extends JFrame {
 				if(price > player.getGold())
 					errorMsg.setText("NOT ENOUGH GOLD TO PURCHASE");
 				else {
-					//System.out.println(amount + soldierType);
+					
 					sent.addSoldier(index, amount);
 					sent.setCharacter(sent.getSoldierPower()+"");
 					RiskGameSys.increaseRoundCount();

@@ -26,7 +26,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
-public class RiskFrame extends JFrame {
+public class RiskFrame extends JFrame{
 	SoldierAddFrame soldierAddFrame;
 	StartPanel startPanel = new StartPanel();
 	WinnerPanel winPanel;

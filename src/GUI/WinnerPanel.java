@@ -51,6 +51,7 @@ public class WinnerPanel extends JFrame {
 		btnFinishButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				sp.setVisible(true);
+				rf.dispose();
 				dispose();
 				
 			}

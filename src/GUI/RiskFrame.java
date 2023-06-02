@@ -86,7 +86,7 @@ public class RiskFrame extends JFrame {
 							}
 							winPanel = new WinnerPanel(rf, startPanel);
 							winPanel.setVisible(true);
-							dispose();
+							
 						}
 						else {
 						

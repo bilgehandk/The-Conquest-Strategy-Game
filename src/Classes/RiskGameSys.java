@@ -317,20 +317,6 @@ public class RiskGameSys {
 		player.setGold(player.getGold() - price);
 	}
 	
-	public static void startTheConquest() {
-		
-		player1.setGold(10);
-		player2.setGold(10);
-		player1.setTurn(true);
-		player2.setTurn(false);
-		while(roundCount < 50) {
-			
-			
-			
-			
-			
-			increaseRoundCount();
-		}
-	}
+	
 	
 }

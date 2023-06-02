@@ -84,8 +84,9 @@ public class RiskFrame extends JFrame {
 							else {
 								RiskGameSys.win = false;
 							}
-							winPanel = new WinnerPanel(rf);
+							winPanel = new WinnerPanel(rf, startPanel);
 							winPanel.setVisible(true);
+							dispose();
 						}
 						else {
 						

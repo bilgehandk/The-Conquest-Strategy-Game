@@ -28,7 +28,7 @@ public class WinnerPanel extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public WinnerPanel(JFrame jr) { 
+	public WinnerPanel(JFrame jr, StartPanel sp) { 
 		RiskFrame rf = (RiskFrame)jr; 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 300);
@@ -47,14 +47,16 @@ public class WinnerPanel extends JFrame {
 		else 
 			textArea.setText("Player2: "+RiskGameSys.getPlayer2().getNickname()+" wins!"); 
 		
-		JButton btnFinishButton = new JButton("Finish !");
+		JButton btnFinishButton = new JButton("START A NEW GAME!");
 		btnFinishButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				sp.setVisible(true);
+				dispose();
 				
 			}
 		});
 		btnFinishButton.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnFinishButton.setBounds(48, 196, 160, 33);
+		btnFinishButton.setBounds(102, 199, 348, 33);
 		contentPane.add(btnFinishButton);
 		
 		JLabel lblNewLabel = new JLabel("CONGRATULATIONS!!");

@@ -9,6 +9,9 @@ public class Archer extends Soldier{
 		super(count);
 	}
 
+
+	
+
 	public static int getPrice() {
 		return PRICE;
 	}
@@ -16,6 +19,7 @@ public class Archer extends Soldier{
 	@Override
 	public String makeNoise() {
 		return "The Archer unleashes a volley of arrows!";
+		
 	}
 
 	@Override

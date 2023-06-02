@@ -2,6 +2,7 @@ package Classes;
 
 public class Spearman extends Soldier{
 
+	
 	private static final int POWER = 3;
 	private static final int PRICE = 7;
 

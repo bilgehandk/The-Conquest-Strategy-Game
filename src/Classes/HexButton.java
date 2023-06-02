@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 
 public class HexButton extends JButton{
+
+    private static final long serialVersionUID = 8703517515706326251L;
     public Polygon bounds;
     public String character;
     public Boolean clicked;
@@ -34,7 +36,11 @@ public class HexButton extends JButton{
     		areaSoldier.add(new Spearman(amount));
     	}
     }
-
+    
+    public void clearBtn() {
+    	areaSoldier.clear();
+    	this.totalPower = 0;
+    }
     
     public int getSoldierPower() {
     	
@@ -215,6 +221,9 @@ public class HexButton extends JButton{
 		this.clicked = clicked;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	public void setOwnership(int owner) {
 		this.owner = owner;
 	}

@@ -26,6 +26,13 @@ public class Player {
 		}
 		return false;
 	}
+	public static boolean addBtn2Arr(HexButton a) {
+		if(!searchButton(a)) {
+			playerArrList.add(a);
+		}
+		return false;
+	}
+	
 	public boolean isTurn() {
 		return isTurn;
 	}

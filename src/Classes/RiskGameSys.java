@@ -151,7 +151,11 @@ public class RiskGameSys {
 			attackSide.setCharacter(attackSide.getTotalPower() + "");
 			defendSide.setTotalPower(0);
 			defendSide.setCharacter(defendSide.getTotalPower() + "");
+			System.out.println("defend Index:" +defendSide.btnIndex);
+			System.out.println("attack Index:" +attackSide.btnIndex);
 			changeAttackColor(attackSide, defendSide);
+			Areas.add(defendSide.btnIndex, defendSide);
+			Areas.add(attackSide.btnIndex, attackSide);
 		}else {
 			defendSide.setTotalPower(defendSide.getTotalPower() - numOfUnit);
 			defendSide.setCharacter(defendSide.getTotalPower() + "");
@@ -242,13 +246,15 @@ public class RiskGameSys {
 		
 		
 			int i = btn2.btnIndex;
+			System.out.println("btn2= "+btn2.owner);
+			System.out.println("btn1=" +btn1.owner);
 			if(btn2.owner == 1)
 			{
-				btn2.setBackground(setColor(btn1.getColor()));
+				btn2.setBackground(setColor(player2.getColor()));
 			}
-			else if(btn1.owner == 2)
+			else if(btn2.owner == 2)
 			{
-				btn2.setBackground(setColor(btn1.getColor()));
+				btn2.setBackground(setColor(player1.getColor()));
 			}
 			else {
 				btn2.setBackground(Color.GRAY);

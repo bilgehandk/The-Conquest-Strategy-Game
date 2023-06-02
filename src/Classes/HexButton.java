@@ -227,9 +227,7 @@ public class HexButton extends JButton{
 	public void setOwnership(int owner) {
 		this.owner = owner;
 	}
-    public String getColor() {
-    	return Color.BLACK + "";
-    }
+    
     
     public int getOwnership(){
     	return owner;

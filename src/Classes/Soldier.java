@@ -3,7 +3,7 @@ package Classes;
 public abstract class Soldier implements Attackable{
 	
 	protected int power, count;
-	protected static int price;
+
 	
 	public Soldier(int count) {
 		this.count = count;
@@ -27,7 +27,5 @@ public abstract class Soldier implements Attackable{
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
-	
 	
 }

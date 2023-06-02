@@ -1,7 +1,5 @@
 package Classes;
 
 public interface Attackable {
-	
-    int getAttackPower();
-    
+    public abstract int getAttackPower();
 }

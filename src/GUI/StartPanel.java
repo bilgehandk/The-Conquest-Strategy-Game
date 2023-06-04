@@ -18,6 +18,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 
 public class StartPanel extends JFrame implements KeyListener{
 
@@ -26,6 +29,10 @@ public class StartPanel extends JFrame implements KeyListener{
 	private JTextField player2Nick;
 	JComboBox player1cmbBox;
 	JComboBox player2cmbBox;
+	StartPanel sp = this;
+	boolean isSelected;
+	int theme = 1;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
 
 	/**
@@ -49,7 +56,7 @@ public class StartPanel extends JFrame implements KeyListener{
 	 */
 	public StartPanel() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 765, 361);
+		setBounds(100, 100, 765, 461);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -107,7 +114,7 @@ public class StartPanel extends JFrame implements KeyListener{
 					RiskGameSys.setPlayer2(player2Nick.getText(), player2cmbBox.getSelectedItem().toString());
 					
 					
-					RiskFrame theGame = new RiskFrame(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2());
+					RiskFrame theGame = new RiskFrame(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2(),sp);
 					RiskGameSys.setFirstColor(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2());
 					
 					setVisible(false);
@@ -128,6 +135,33 @@ public class StartPanel extends JFrame implements KeyListener{
         lblNewLabel_1.setBounds(345, 67, 134, 16);
         contentPane.add(lblNewLabel_1);
         
+       
+        
+        JLabel lblNewLabel_2 = new JLabel("Theme Music:");
+        lblNewLabel_2.setBounds(26, 329, 150, 16);
+        contentPane.add(lblNewLabel_2);
+        
+        JCheckBox chckbxMusic = new JCheckBox("On");
+        chckbxMusic.setSelected(true);
+        chckbxMusic.setBounds(225, 325, 128, 23);
+        contentPane.add(chckbxMusic);
+        
+        JLabel lblNewLabel_3 = new JLabel("Select Your Theme Music:");
+        lblNewLabel_3.setBounds(26, 380, 150, 16);
+        contentPane.add(lblNewLabel_3);
+        
+        JRadioButton rdbtnEnergetic = new JRadioButton("Energetic");
+        rdbtnEnergetic.setSelected(true);
+        buttonGroup.add(rdbtnEnergetic);
+        rdbtnEnergetic.setBounds(225, 376, 141, 23);
+        contentPane.add(rdbtnEnergetic);
+        
+        JRadioButton rdbtnChill = new JRadioButton("Chill");
+        buttonGroup.add(rdbtnChill);
+        rdbtnChill.setBounds(402, 376, 93, 23);
+        contentPane.add(rdbtnChill);
+        
+        
         JLabel lblNewLabel_1_1 = new JLabel("Player 2");
         lblNewLabel_1_1.setBounds(523, 67, 134, 16);
         contentPane.add(lblNewLabel_1_1);
@@ -136,11 +170,18 @@ public class StartPanel extends JFrame implements KeyListener{
         JButton btnStartButton = new JButton("Start Your Journey!");
         btnStartButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		if(chckbxMusic.isSelected()) {
+        			isSelected = true;
+        			System.out.println("sa");
+        			if(rdbtnChill.isSelected()) {
+        				theme = 2;
+        			}
+        		}
         		RiskGameSys.setPlayer1(player1Nick.getText(), player1cmbBox.getSelectedItem().toString());
         		RiskGameSys.setPlayer2(player2Nick.getText(), player2cmbBox.getSelectedItem().toString());
         		
         		
-        		RiskFrame theGame = new RiskFrame(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2());
+        		RiskFrame theGame = new RiskFrame(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2(),sp);
         		RiskGameSys.setFirstColor(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2());
         		
         		setVisible(false);
@@ -148,13 +189,10 @@ public class StartPanel extends JFrame implements KeyListener{
         	}
         });
         
-        
         btnStartButton.setFont(new Font("Tahoma", Font.BOLD, 20));
         btnStartButton.setBounds(225, 256, 300, 41);
         contentPane.add(btnStartButton);
-        
-      
-		
+       
 	}
 
 	@Override
@@ -173,7 +211,7 @@ public class StartPanel extends JFrame implements KeyListener{
 			RiskGameSys.setPlayer2(player2Nick.getText(), player2cmbBox.getSelectedItem().toString());
 			
 			
-			RiskFrame theGame = new RiskFrame(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2());
+			RiskFrame theGame = new RiskFrame(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2(),sp);
 			RiskGameSys.setFirstColor(RiskGameSys.getPlayer1(), RiskGameSys.getPlayer2());
 			
 			setVisible(false);
@@ -183,6 +221,7 @@ public class StartPanel extends JFrame implements KeyListener{
 		// TODO Auto-generated method stub
 		
 	}
+	
 
 	@Override
 	public void keyReleased(KeyEvent e) {

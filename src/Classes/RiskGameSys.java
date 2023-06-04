@@ -1,9 +1,14 @@
 package Classes;
 import java.awt.Color;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JFrame;
+
 
 public class RiskGameSys {
 
@@ -317,6 +322,24 @@ public class RiskGameSys {
 		player.setGold(player.getGold() - price);
 	}
 	
+	public static void PlayMusic(String location) {
+		try {
+			File musicPath = new File(location);
+			if(musicPath.exists()) {
+				AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+				Clip clip = AudioSystem.getClip();
+				clip.open(audioInput);
+				clip.start();
+				
+			}else {
+				System.out.println("Cant find the file");
+			}
+		}catch(Exception e){
+			System.out.println(e);
+			
+		}
+		
+	}
 	
 	
 }

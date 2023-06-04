@@ -40,7 +40,8 @@ public class RiskFrame extends JFrame {
 	WinnerPanel winPanel;
 	AttackPanel attackPanel;
 	JTextPane textRound;
-	String filepath = "theme1.wav";
+	String theme;
+	
 	
 	
 	private JPanel contentPane;
@@ -52,13 +53,16 @@ public class RiskFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RiskFrame(Player player1, Player player2) {
+	public RiskFrame(Player player1, Player player2, StartPanel sp) {
 		player1.setGold(100);
 		player2.setGold(100);
 		player1.setTurn(true);
 		RiskFrame rf = this;
 		
-		PlayMusic(filepath);
+		if(sp.isSelected) {
+			theme = sp.theme == 1 ? "Energetic.wav" : "Chill.wav";
+			RiskGameSys.PlayMusic(theme);
+		}
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

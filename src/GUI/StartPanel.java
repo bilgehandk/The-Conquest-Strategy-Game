@@ -172,7 +172,6 @@ public class StartPanel extends JFrame implements KeyListener{
         	public void actionPerformed(ActionEvent e) {
         		if(chckbxMusic.isSelected()) {
         			isSelected = true;
-        			System.out.println("sa");
         			if(rdbtnChill.isSelected()) {
         				theme = 2;
         			}

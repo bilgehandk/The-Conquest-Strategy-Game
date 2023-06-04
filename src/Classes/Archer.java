@@ -9,9 +9,6 @@ public class Archer extends Soldier{
 		super(count);
 	}
 
-
-	
-
 	public static int getPrice() {
 		return PRICE;
 	}

@@ -22,22 +22,6 @@ public class RiskGameSys {
 	public static boolean win;
 	
 	
-	
-//	public static void disableButtons(HexButton hex) {
-//		for(HexButton a : RiskFrame.hexButtons) {
-//			if(!a.equals(hex) && a.getOwnership() == hex.getOwnership()) {
-//				a.setEnabled(false);
-//			}
-//		}
-//	}
-//	public static void enableButtons() {
-//		for(HexButton a : RiskFrame.hexButtons) {
-//			a.setEnabled(true);
-//		}
-//	}
-	
-	
-	
 	public static void DeleteButton(HexButton sent)
 	{
 		int index = sent.btnIndex;

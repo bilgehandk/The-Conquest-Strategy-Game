@@ -9,7 +9,6 @@ public class Jackman extends Soldier {
 		super(count);
 	}
 
-
 	public static int getPrice() {
 		return PRICE;
 	}

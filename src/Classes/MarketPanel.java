@@ -112,11 +112,6 @@ public class MarketPanel extends JFrame {
         numOfSoldiertextField.setBounds(324, 208, 158, 19);
         getContentPane().add(numOfSoldiertextField);
         numOfSoldiertextField.setColumns(10);
-        
-     
-        
-        
-        
 		
 	}
 }

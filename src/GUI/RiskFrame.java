@@ -128,8 +128,7 @@ public class RiskFrame extends JFrame {
 											btnNewButton.isClicked = false;
 										}
 									}
-									//soldierAddFrame = new SoldierAddFrame(btnNewButton, player1);
-									//btnNewButton.setOwnership(1);	
+									
 								}else {
 									HexButton found = RiskGameSys.searchClicked();
 									found.isClicked = false;
@@ -159,8 +158,7 @@ public class RiskFrame extends JFrame {
 											btnNewButton.isClicked = false;
 										}
 									}
-								//soldierAddFrame = new SoldierAddFrame(btnNewButton, player2);
-								//btnNewButton.setOwnership(2);
+								
 								}else {
 									HexButton found = RiskGameSys.searchClicked();
 									System.out.println(found.owner);
@@ -169,14 +167,13 @@ public class RiskFrame extends JFrame {
 									found.isClicked = false;
 									RiskGameSys.playerTurner();
 								}
-								//player1.setTurn(true);
-								//player2.setTurn(false);	
+								
 							}
 						}
 					}
 				});
 			}
-			//HexButton btnNewButton = i == 0 || i == 39 ? new HexButton("a",i) : new HexButton("b", i);
+			
 			RiskGameSys.Areas.get(0).setBounds(17, 6, 75, 75);
 			contentPane.add(RiskGameSys.Areas.get(0));
 		}	
@@ -243,23 +240,5 @@ public class RiskFrame extends JFrame {
 
 	public JTextPane getTextRound() {
 		return textRound;
-	}
-	public void PlayMusic(String location) {
-		try {
-			File musicPath = new File(location);
-			if(musicPath.exists()) {
-				AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-				Clip clip = AudioSystem.getClip();
-				clip.open(audioInput);
-				clip.start();
-				
-			}else {
-				System.out.println("Cant find the file");
-			}
-		}catch(Exception e){
-			System.out.println(e);
-			
-		}
-		
 	}
 }

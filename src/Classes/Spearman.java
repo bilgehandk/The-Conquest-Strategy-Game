@@ -18,8 +18,7 @@ public class Spearman extends Soldier{
 	@Override
 	public String makeNoise() {
 	     return "The Spearman charges forward with his spear!";
-		
-	}
+		}
 
 	@Override
 	public int getAttackPower() {

@@ -26,12 +26,22 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.JOptionPane;
+
+
+
 public class RiskFrame extends JFrame {
 	SoldierAddFrame soldierAddFrame;
 	StartPanel startPanel = new StartPanel();
 	WinnerPanel winPanel;
 	AttackPanel attackPanel;
 	JTextPane textRound;
+	String filepath = "theme1.wav";
+	
 	
 	private JPanel contentPane;
 
@@ -47,6 +57,8 @@ public class RiskFrame extends JFrame {
 		player2.setGold(100);
 		player1.setTurn(true);
 		RiskFrame rf = this;
+		
+		PlayMusic(filepath);
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -227,5 +239,23 @@ public class RiskFrame extends JFrame {
 
 	public JTextPane getTextRound() {
 		return textRound;
+	}
+	public void PlayMusic(String location) {
+		try {
+			File musicPath = new File(location);
+			if(musicPath.exists()) {
+				AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+				Clip clip = AudioSystem.getClip();
+				clip.open(audioInput);
+				clip.start();
+				
+			}else {
+				System.out.println("Cant find the file");
+			}
+		}catch(Exception e){
+			System.out.println(e);
+			
+		}
+		
 	}
 }

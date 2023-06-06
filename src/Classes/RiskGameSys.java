@@ -145,6 +145,7 @@ public class RiskGameSys {
 			changeAttackColor(attackSide, defendSide);
 			Areas.add(defendSide.btnIndex, defendSide);
 			Areas.add(attackSide.btnIndex, attackSide);
+			defendSide.setOwnership(attackSide.getOwnership());
 		}else {
 			defendSide.setTotalPower(defendSide.getTotalPower() - numOfUnit);
 			defendSide.setCharacter(defendSide.getTotalPower() + "");

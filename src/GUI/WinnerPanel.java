@@ -28,7 +28,7 @@ public class WinnerPanel extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public WinnerPanel(JFrame jr, StartPanel sp) { 
+	public WinnerPanel(JFrame jr) { 
 		RiskFrame rf = (RiskFrame)jr; 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 300);
@@ -47,12 +47,10 @@ public class WinnerPanel extends JFrame {
 		else 
 			textArea.setText("Player2: "+RiskGameSys.getPlayer2().getNickname()+" wins!"); 
 		
-		JButton btnFinishButton = new JButton("START A NEW GAME!");
+		JButton btnFinishButton = new JButton("CLOSE THE GAME");
 		btnFinishButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sp.setVisible(true);
-				rf.dispose();
-				dispose();
+				System.exit(0);
 				
 			}
 		});

@@ -36,7 +36,6 @@ import javax.swing.JOptionPane;
 
 public class RiskFrame extends JFrame {
 	SoldierAddFrame soldierAddFrame;
-	StartPanel startPanel = new StartPanel();
 	WinnerPanel winPanel;
 	AttackPanel attackPanel;
 	JTextPane textRound;
@@ -100,7 +99,7 @@ public class RiskFrame extends JFrame {
 							else {
 								RiskGameSys.win = false;
 							}
-							winPanel = new WinnerPanel(rf, startPanel);
+							winPanel = new WinnerPanel(rf);
 							winPanel.setVisible(true);
 							
 						}

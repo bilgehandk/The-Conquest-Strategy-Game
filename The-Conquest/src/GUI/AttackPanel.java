@@ -67,7 +67,7 @@ public class AttackPanel extends JFrame {
 		btnAttackButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RiskGameSys.attackFunc(attackSide, defendSide, Integer.parseInt(txtSoldier.getText()));
-				
+				RiskGameSys.increaseRoundCount();
 				dispose();
 				
 			}
@@ -77,6 +77,12 @@ public class AttackPanel extends JFrame {
 		contentPane.add(btnAttackButton);
 		
 		JButton btnSkipButton = new JButton("Skip Round");
+		btnSkipButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RiskGameSys.increaseRoundCount();
+				dispose();
+			}
+		});
 		btnSkipButton.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnSkipButton.setBounds(352, 220, 169, 40);
 		contentPane.add(btnSkipButton);

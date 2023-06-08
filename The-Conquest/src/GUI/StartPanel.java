@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
@@ -82,7 +84,17 @@ public class StartPanel extends JFrame implements KeyListener{
 		player2cmbBox.setModel(new DefaultComboBoxModel(new String[] {"Blue", "Yellow", "Red", "Purple", "Green", "Orange"}));
 		player2cmbBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		player2cmbBox.setBounds(523, 169, 134, 21);
+
 		contentPane.add(player2cmbBox);
+
+		player2cmbBox.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseEntered(MouseEvent e) {
+		        player2cmbBox.showPopup();
+		    }
+		});
+
+		
 		
 		player2cmbBox.addItem("Blue");
         player2cmbBox.addItem("Yellow");
@@ -96,6 +108,13 @@ public class StartPanel extends JFrame implements KeyListener{
         player1cmbBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
         player1cmbBox.setBounds(345, 169, 134, 21);
         contentPane.add(player1cmbBox);
+        
+        player1cmbBox.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseEntered(MouseEvent e) {
+		        player1cmbBox.showPopup();
+		    }
+		});
         
         player1Nick = new JTextField();
         player1Nick.setBounds(349, 100, 130, 26);

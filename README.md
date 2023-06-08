@@ -1,8 +1,4 @@
 # The Conquest
-Bilgehan Demirkaya 22002357
-Can Kayıkcı 22103969
-Emirhan Yel 22103408
-Batuhan Türk 22102974
 
 
 The Conquest
